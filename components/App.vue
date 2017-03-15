@@ -1,28 +1,36 @@
 <template>
-
-    <div class="container">
-    <div class="push-down"></div>
+<div class="container">
+    <div class="push-down">
+        <button class = "btn btn-danger" @click="logout()">Logout</button>
+    </div>
     <div class="col-md-8 col-md-offset-2">
-            <div class="panel">
-                <div class="panel-heading">
-                    messages
-                </div>
-                <div class="panel-body">
-                    
-                </div>
-                <div class="panel-footer">
-                    
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                messages
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="snapshot in data">
+                        {{snapshot.data}}
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <div class="input-group">
+                    <input type="text" class = "form-control" v-model = "newData">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" @click = "addData()">Add</button>
+                    </div>
                 </div>
             </div>
+        </div>
     </div>
 </div>
-
 </template>
 <script>
-
 export default {
-    mounted(){
-        this.auth.state({
+    mounted() {
+        this.$auth.state({
             forward: '/app',
             redirect: '/login',
             then: (user) => {
@@ -30,12 +38,28 @@ export default {
             }
         })
     },
-    firebase(){
-        messages:
-    }
-    data(){
+    firebase() {
         return {
-            message: "welcome"
+            data: this.$store.state.database.child('data')
+
+        }
+    },
+    data() {
+        return {
+            message: "welcome",
+            newData: '',
+        }
+    },
+    methods: {
+        addData() {
+            this.$firebaseRefs.data.push({
+                data: this.newData
+            });
+            this.newData = ''
+        },
+        logout(){
+            this.$auth.logout();
+            this.$destroy();
         }
     }
 }
