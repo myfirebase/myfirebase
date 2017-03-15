@@ -23,7 +23,7 @@
 export default {
     mounted() {
         this.$auth.state({
-            forward: '/app',
+            forward: '/',
             redirect: '/login',
             then: (user) =>{
 
