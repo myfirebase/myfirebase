@@ -30,6 +30,9 @@ export default {
             }
         })
     },
+    firebase(){
+        messages:
+    }
     data(){
         return {
             message: "welcome"
