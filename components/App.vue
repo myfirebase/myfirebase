@@ -2,9 +2,6 @@
 <div>
 <navbar></navbar>
 <div class="container">
-    <div class="push-down">
-        <button class = "btn btn-danger" @click="logout()">Logout</button>
-    </div>
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -19,9 +16,9 @@
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input type="text" class = "form-control" v-model = "newData">
+                    <input type="text" class = "form-control" v-model = "newData" v-on:keyup.enter="addData()">
                     <div class="input-group-btn">
-                        <button class="btn btn-primary" @click = "addData()" @key-up:enter = "addData()">Add</button>
+                        <button class="btn btn-primary" @click = "addData()">Add</button>
                     </div>
                 </div>
             </div>
