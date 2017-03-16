@@ -1,8 +1,9 @@
 
-# Myfirebase
+<p align="center">
+<img src = "http://i.imgur.com/eui4MCQ.png">
+</p>
 
-<p align="center"><img src = "http://i.imgur.com/eui4MCQ.png"></p>
-
+<h3 align="center"><b>Myfirebase</b> <i> SPA framework</i></h3>
 
 ### Getting started
 
