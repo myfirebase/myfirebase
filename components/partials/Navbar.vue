@@ -24,7 +24,7 @@
 						<li v-if = "!signed"><router-link to = "login">Login</router-link></li>
 						<li v-if = "signed"><router-link to = 'update-profile'>Profile</router-link></li>
 						<li role="separator" class="divider"></li>
-						<li v-if = "signed"><a href="#">logout</a></li>
+						<li v-if = "signed"><router-link to="/login">Logout</router-link></li>
 					</ul>
 				</li>
 			</ul>
@@ -35,26 +35,30 @@
 
 <script>
 export default {
-	mounted(){
-		this.$auth.state({
-			forward: null,
-			redirect: null,
-			then: (user) => {
-				this.signed = true
-				this.userEmail = user.email
-			},
-			catch: () => {
-				this.userEmail = "Auth" 
-				}
-		})
-	},
-	data(){
-		return {
-			Logo: "Myfirebase",
-			toggle: false,
-			signed: false,
-			userEmail: ''
-		}
-	}
+    mounted() {
+    	this.$auth.check({
+    		then: (user) => {
+    			this.signed = true
+    			this.userEmail = user.email
+    		},
+    		catch: () => {
+    			this.userEmail = "Auth"
+    		}
+    	})
+    },
+    data() {
+        return {
+            Logo: "Myfirebase",
+            toggle: false,
+            signed: false,
+            userEmail: ''
+        }
+    },
+    methods:{
+    	logout(){
+    		this.$auth.logout()
+    		this.$destroy()
+    	}
+    }
 }
 </script>
