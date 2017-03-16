@@ -10,11 +10,11 @@
 
 ## Installation
 
-```
+```shell
 # Clone the repository
 git clone https://github.com/myfirebase/myfirebase
 
-# Change directory and install dependencies via yarn
+# Change directory
 cd myfirebase
 
 # Install dependencies
@@ -23,6 +23,12 @@ npm install
 # Install firebase-cli globaly
 npm install -g firebase-tools
 
-# Get set go
+# Initialize firebase project
+firebase init
+
+# Compile assets
+npm run dev
+
+# Run the server
 npm run serve
 ```
