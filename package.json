@@ -4,7 +4,11 @@
     "description": "myfirebase",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "firebase serve",
+        "watch": "gulp watch",
+        "production" : "gulp --production",
+        "dev": "gulp"
     },
     "repository": {
         "type": "git",
