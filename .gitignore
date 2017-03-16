@@ -3,3 +3,8 @@
 /public/css/app.css
 /public/css/app.css.map
 /public/js/app.js
+/npm-debug.log
+/.firebaserc
+/database.rules.json
+/firebase-debug.log
+/firebase.json
