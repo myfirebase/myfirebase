@@ -26,7 +26,7 @@ export default {
         console.log("Component mounted")
         this.$auth.state({
             forward: '/update-profile',
-            rederict: 'login',
+            rederict: '/login',
             then: (user) => {
                 this.userEmail = this.$auth.user().email
 				 this.storage.getDownloadURL({
@@ -39,7 +39,8 @@ export default {
             		}
             	})
             	console.log("name : " + this.$auth.user().displayName)            
-            }
+            },
+            catch: () =>{}
         })
     },
     data() {
