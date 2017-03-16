@@ -1,4 +1,6 @@
 <template>
+<div>
+<navbar></navbar>
 <div class="container">
     <div class="push-down"></div>
     <div class="row">
@@ -17,17 +19,21 @@
         </div>
     </div>
 </div>
+</div>
 </template>
 <script>
+
+import navbar from './../components/partials/Navbar'
 
 export default {
     mounted() {
         this.$auth.state({
-            forward: '/',
-            redirect: '/login',
+            forward: null,
+            redirect: null,
             then: (user) =>{
-
-            }
+                console.log("logged in")
+            },
+            catch: ()=> {}
         });
     },
     data() {
@@ -44,6 +50,9 @@ export default {
             this.$router.push('/app')
             this.$router.go(1)
         }
+    },
+    components: {
+        navbar
     }
 }
 </script>
