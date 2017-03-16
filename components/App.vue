@@ -1,4 +1,6 @@
 <template>
+<div>
+<navbar></navbar>
 <div class="container">
     <div class="push-down">
         <button class = "btn btn-danger" @click="logout()">Logout</button>
@@ -6,7 +8,7 @@
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                messages
+                Data
             </div>
             <div class="panel-body">
                 <ul class="list-group">
@@ -19,15 +21,19 @@
                 <div class="input-group">
                     <input type="text" class = "form-control" v-model = "newData">
                     <div class="input-group-btn">
-                        <button class="btn btn-primary" @click = "addData()">Add</button>
+                        <button class="btn btn-primary" @click = "addData()" @key-up:enter = "addData()">Add</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 </template>
 <script>
+
+import navbar from './../components/partials/Navbar.vue'
+
 export default {
     mounted() {
         this.$auth.state({
@@ -35,7 +41,8 @@ export default {
             redirect: '/login',
             then: (user) => {
                 console.log("Logged in")
-            }
+            },
+            catch: () =>{}
         })
     },
     firebase() {
@@ -61,10 +68,9 @@ export default {
             this.$auth.logout();
             this.$destroy();
         }
+    },
+    components: {
+        navbar
     }
 }
 </script>
-
-<style>
-	
-</style>
