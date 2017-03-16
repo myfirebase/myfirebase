@@ -46,7 +46,8 @@ export default {
         this.$auth.state({
             forward: '/app',
             redirect: '/login',
-            then: (user) => {}
+            then: (user) => {},
+            catch: () => {}
         });
     },
     data() {
