@@ -81,7 +81,6 @@ export default {
                 password: this.password,
                 result: (user) => {
                     console.log("new adaptation result : " + user.email)
-                    result.user.photoURL = "images/photo.jpg"
                 },
                 error: (error) => {
                     this.error = error.message
