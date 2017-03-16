@@ -1,7 +1,7 @@
 
 # Myfirebase
 
-<p align="center"><img src = "http://i.imgur.com/sCOZ1bY.png"></p>
+<p align="center"><img src = "http://i.imgur.com/eui4MCQ.png"></p>
 
 
 ### Getting started
