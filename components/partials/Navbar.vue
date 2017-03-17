@@ -14,8 +14,8 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="">
 			<ul class="nav navbar-nav">
-				<li><a href="#">Home <span class="sr-only">(current)</span></a></li>
-				<li><a href="#">App</a></li>
+				<li><router-link to="/">Home</router-link></li>
+				<li><router-link to="/app">App</router-link></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="">
