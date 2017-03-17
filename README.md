@@ -1,8 +1,9 @@
 
-# Myfirebase
+<p align="center">
+<img src = "http://i.imgur.com/eui4MCQ.png">
+</p>
 
-<p align="center"><img src = "http://i.imgur.com/sCOZ1bY.png"></p>
-
+<h3 align="center"><b>Myfirebase</b> <i> SPA framework</i></h3>
 
 ### Getting started
 
@@ -10,19 +11,25 @@
 
 ## Installation
 
-```
+```shell
 # Clone the repository
 git clone https://github.com/myfirebase/myfirebase
 
-# Change directory and install dependencies via yarn
+# Change directory
 cd myfirebase
 
 # Install dependencies
 npm install
 
-# Install firebase-cli globaly
+# Install firebase-cli globally
 npm install -g firebase-tools
 
-# Get set go
+# Initialize firebase project
+firebase init
+
+# Compile assets
+npm run dev
+
+# Run the server
 npm run serve
 ```
