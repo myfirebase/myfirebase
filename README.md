@@ -21,7 +21,7 @@ cd myfirebase
 # Install dependencies
 npm install
 
-# Install firebase-cli globaly
+# Install firebase-cli globally
 npm install -g firebase-tools
 
 # Initialize firebase project
