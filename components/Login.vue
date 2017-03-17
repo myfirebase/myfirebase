@@ -43,6 +43,7 @@
 <script>
 export default {
     mounted() {
+        this.$auth.logout()
         this.$auth.state({
             forward: '/app',
             redirect: '/login',
