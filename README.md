@@ -5,8 +5,6 @@
 
 <h3 align="center"><b>Myfirebase</b> <i> SPA framework</i></h3>
 
-### Getting started
-
 > Currently Myfirebase is in development stage, Thank you for your testing.
 
 ## Installation
