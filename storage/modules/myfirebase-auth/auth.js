@@ -77,8 +77,17 @@ export default {
                 user.error(error)
             })
         },
-        updateProfile(state, image) {
+        updateProfile(state, profile) {
 
+        },
+        updateProfilePicture(state, image) {
+            state.auth.currentUser.updateProfile({
+            photoURL: image.ref
+            }).then(() => {
+                image.result()
+            }).catch(error => {
+                image.error(error)
+            })
         },
     },
     getters: {},
