@@ -3,7 +3,9 @@
 <navbar></navbar>
 <div class="container">
     <div class="col-md-4 col-md-offset-4">
-        <div class="push-down"></div>
+        <div class="push-down">
+            <div class="alert alert-danger" v-if="error"><p align="center">{{error}}</p></div>
+        </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Update Profile {{userEmail}}
@@ -56,7 +58,6 @@ export default {
                         this.error = error.message
                     }
                 })
-                console.log("name : " + this.$auth.user().displayName)
             },
             catch: () => {}
         })
@@ -67,7 +68,8 @@ export default {
             userEmail: '',
             profilePicture: '',
             userName: '',
-            newPhoto: null
+            newPhoto: null,
+            error: ''
         }
     },
     computed: {},
@@ -92,7 +94,6 @@ export default {
                 },
                 completed: (fileName) => {
                     this.updateProfilePicture(name)
-                    this.synchronize()
                 }
             })
         },
@@ -101,7 +102,7 @@ export default {
                 ref: `/images/${fileName}`,
                 result: () => {
                     this.message = "Updated!!"
-                    console.log(this.message)
+                    this.synchronize()
                 },
                 error: (error) => {
                     this.error = error.message
