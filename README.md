@@ -10,7 +10,7 @@
 
 ## Prerequisites
 
-1. NPM is the recommended installation method when building large scale applications with Myfirebase.
+1. **NPM** is the recommended installation method when building large scale applications with **Myfirebase**.
 
    If this is the first time you want to give **npm** a shot, don't worry, we got exactly what you need.
 
@@ -20,9 +20,9 @@
 
    - [How to Install Node.js and NPM on a Linux](http://blog.teamtreehouse.com/install-node-js-npm-linux)
 
-2. **firebase command line interface**, `npm install -g firebase-tools`
+2. **Firebase command line interface**, `npm install -g firebase-tools`
 
-3. **gulp** to automate and enhance your workflow, `npm install -g gulp`
+3. **Gulp** to automate and enhance your workflow, `npm install -g gulp`
 
 ## Installation
 
