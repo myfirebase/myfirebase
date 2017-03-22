@@ -3,7 +3,7 @@
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle">
+			<button type="button" class="navbar-toggle" @click='collapsAction'>
 			<span class="sr-only">Toggle navigation</span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -12,7 +12,7 @@
 			<a class="navbar-brand" href="#">{{Logo}}</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="">
+		<div :class="collaps">
 			<ul class="nav navbar-nav">
 				<li><router-link to="/">Home</router-link></li>
 				<li><router-link to="/app">App</router-link></li>
@@ -51,13 +51,23 @@ export default {
             Logo: "Myfirebase",
             toggle: false,
             signed: false,
-            userEmail: ''
+            userEmail: '',
+            collapsClass: 'collapse navbar-collapse'
         }
+    },
+    computed:{
+    	collaps()
+    	{
+    		return this.collapsClass
+    	}
     },
     methods:{
     	logout(){
     		this.$auth.logout()
     		this.$destroy()
+    	},
+    	collapsAction(){
+    		this.collapsClass = this.collapsClass ? '' : 'collapse navbar-collapse'
     	}
     }
 }
