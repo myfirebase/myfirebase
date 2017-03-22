@@ -4,7 +4,14 @@
 <div class="container">
     <div class="col-md-4 col-md-offset-4">
         <div class="push-down">
-            <div class="alert alert-danger" v-if="error"><p align="center">{{error}}</p></div>
+            <div class="alert alert-danger" v-if="error">
+                <a href="#" class="close"  @click="error = ''">&times;</a>
+                <p align="center">{{error}}</p>
+            </div>
+            <div class="alert alert-success" v-if="message">
+                <a href="#" class="close" @click="message = ''">&times;</a>
+                <p align="center">{{message}}</p>
+            </div>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -113,7 +120,7 @@ export default {
         updateProfile() {
             this.$auth.user().updateProfile({
                 displayName: this.userName,
-                userEmail: this.userEmail
+                email: this.userEmail
             }).then(() => {
                 this.message = "Updated"
             }).catch(error => {
