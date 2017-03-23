@@ -28,7 +28,6 @@
 </div>
 </template>
 <script>
-
 import navbar from './../components/partials/Navbar.vue'
 
 export default {
@@ -39,7 +38,7 @@ export default {
             then: (user) => {
                 console.log("Logged in")
             },
-            catch: () =>{}
+            catch: () => {}
         })
     },
     firebase() {
@@ -56,12 +55,19 @@ export default {
     },
     methods: {
         addData() {
+            this.$firebaseRefs.data.onDisconnect().cancel((err) => {
+                if (err) {
+                    console.log("Connection lost")
+                } else {
+                    console.log("Passed")
+                }
+            })
             this.$firebaseRefs.data.push({
                 data: this.newData
             });
             this.newData = ''
         },
-        logout(){
+        logout() {
             this.$auth.logout();
             this.$destroy();
         }
