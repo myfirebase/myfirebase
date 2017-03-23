@@ -10,7 +10,7 @@ import store from './../storage/store';
 
 import VueFire from 'vuefire';
 
-import Myfirebase from './../framework/myfirebase'
+import Myfirebase from 'myfirebase'
 
 Vue.use(VueRouter);
 
