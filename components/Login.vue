@@ -31,9 +31,9 @@
 					</div>
 				</div>
                 <div class="push-down">
-                    <button class = 'btn btn-danger' @click = "signInGoogle()">Using Google <i class="fa fa-google"></i></button>
-                    <button class="btn facebook-color" @click = "signInFacebook()">Using Facebook <i class="fa fa-facebook"></i></button>
-                    <button class="btn btn-primary">Using Twitter <i class="fa fa-twitter"></i></button>
+                    <button class = 'btn btn-danger' @click = "signInGoogle()">Google <i class="fa fa-google"></i></button>
+                    <button class="btn facebook-color" @click = "signInFacebook()">Facebook <i class="fa fa-facebook"></i></button>
+                    <button class="btn btn-primary">Twitter <i class="fa fa-twitter"></i></button>
                 </div>
 			</div>
 		</div>
