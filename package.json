@@ -7,8 +7,10 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "serve": "firebase serve",
         "watch": "gulp watch",
+        "init": "firebase init",
         "production" : "gulp --production",
-        "dev": "gulp"
+        "dev": "gulp",
+        "deploy": "firebase deploy" 
     },
     "repository": {
         "type": "git",
