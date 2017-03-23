@@ -2,7 +2,7 @@
 <div>
 <navbar></navbar>
 <div class="flex">
-    <h3>Welcome to the <i>Myfirebase</i></h3>
+    <h1>Welcome to <i>Myfirebase</i></h1>
 </div>
 </div>
 </template>
@@ -43,8 +43,9 @@ export default {
 
 <style>
     .flex{
+        height: 500px;
         display: flex;
         align-items: center;
-        justify-content: center
+        justify-content: center;
     }
 </style>
