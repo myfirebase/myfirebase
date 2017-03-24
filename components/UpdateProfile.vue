@@ -20,7 +20,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-4 col-sm-12" align="center">
-                        <img :src="profilePicture" alt="Prifile Picture" class = "img-circle img-responsive img-rounded img-thumbnail">
+                        <img :src="profilePicture" alt="Prifile Picture" class = "img-circle img-responsive img-rounded img-thumbnail image">
                         <br>
                         <label class = "btn btn-default btn-xs">
                             <input type="file" class="hidden" @change="getFile">
@@ -144,3 +144,10 @@ export default {
     }
 }
 </script>
+
+
+<style>
+    .image{
+        max-height: 90px;
+    }
+</style>
