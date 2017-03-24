@@ -96,8 +96,8 @@ export default {
             this.$auth.signInWithGoogle({
                 result: (result) => {
                     // This gives you a Google Access Token. You can use it to access the Google API.
-                    console.log("Token : " + result.credential.accessToken)
-                        // The signed-in user info.
+                    //console.log("Token : " + result.credential.accessToken)
+                    // The signed-in user info.
                     console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
@@ -109,7 +109,7 @@ export default {
         signInFacebook() {
             this.$auth.signInWithFacebook({
                 result: (result) => {
-                    console.log("Token : " + result.credential.accessToken)
+                    //console.log("Token : " + result.credential.accessToken)
                     console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
