@@ -38,7 +38,9 @@ export default {
             then: (user) => {
                 console.log("Logged in")
             },
-            catch: () => {}
+            catch: () => {
+                this.$destroy()
+            }
         })
     },
     firebase() {
