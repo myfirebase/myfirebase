@@ -11,12 +11,13 @@
                 <ul class="list-group">
                     <li class="list-group-item" v-for="snapshot in data">
                         {{snapshot.data}}
+                        <span class = "pull-right delete-data" @click="deleteData(snapshot)"><i class="fa fa-trash"></i></span>
                     </li>
                 </ul>
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input type="text" class = "form-control" v-model = "newData" v-on:keyup.enter="addData()">
+                    <input type="text" class = "form-control" v-model = "newData" v-on:keyup.enter="addData()" placeholder="Write something...">
                     <div class="input-group-btn">
                         <button class="btn btn-primary" @click = "addData()">Add</button>
                     </div>
@@ -72,6 +73,10 @@ export default {
         logout() {
             this.$auth.logout();
             this.$destroy();
+        },
+        deleteData(data)
+        {
+            this.$firebaseRefs.data.child(data['.key']).remove()
         }
     },
     components: {
@@ -79,3 +84,11 @@ export default {
     }
 }
 </script>
+
+<style>
+    .delete-data{
+        cursor: pointer;
+        color: red;
+    }
+
+</style>
