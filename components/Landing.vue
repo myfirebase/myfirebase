@@ -1,9 +1,7 @@
 <template>
 <div>
 <navbar></navbar>
-<div class="flex">
-    <h1>Welcome to <i>Myfirebase</i></h1>
-</div>
+    <router-view></router-view>
 </div>
 </template>
 <script>
@@ -25,15 +23,7 @@ export default {
             userLogged: false
         }
     },
-    methods: {
-        logout() {
-            this.$auth.logout()
-        },
-        app() {
-            this.$router.push('/app')
-            this.$router.go(1)
-        }
-    },
+    methods: {},
     components: {
         navbar
     }
