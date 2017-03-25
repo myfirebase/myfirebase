@@ -1,6 +1,4 @@
 <template>
-<div>
-<navbar></navbar>
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-primary">
@@ -11,7 +9,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" v-for="snapshot in data">
                         {{snapshot.data}}
-                        <span class = "pull-right delete-data" @click="deleteData(snapshot)"><i class="fa fa-trash"></i></span>
+                        <span class = "pull-right delete-data" v-if="isUser(snapshot)"@click="deleteData(snapshot)"><i class="fa fa-trash"></i></span>
                     </li>
                 </ul>
             </div>
@@ -26,7 +24,6 @@
         </div>
     </div>
 </div>
-</div>
 </template>
 <script>
 import navbar from './../components/partials/Navbar.vue'
@@ -38,6 +35,7 @@ export default {
             redirect: '/login',
             then: (user) => {
                 console.log("Logged in")
+                this.userEmail = this.$auth.user().email
             },
             catch: () => {
                 this.$destroy()
@@ -53,7 +51,7 @@ export default {
     data() {
         return {
             message: "welcome",
-            newData: '',
+            newData: ''
         }
     },
     methods: {
@@ -66,7 +64,8 @@ export default {
                 }
             })
             this.$firebaseRefs.data.push({
-                data: this.newData
+                data: this.newData,
+                userEmail: this.$auth.user().email
             });
             this.newData = ''
         },
@@ -77,6 +76,9 @@ export default {
         deleteData(data)
         {
             this.$firebaseRefs.data.child(data['.key']).remove()
+        },
+        isUser(data){
+            return data.userEmail == this.$auth.user().email ? true : false
         }
     },
     components: {
