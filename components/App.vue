@@ -26,8 +26,6 @@
 </div>
 </template>
 <script>
-import navbar from './../components/partials/Navbar.vue'
-
 export default {
     mounted() {
         this.$auth.state({
@@ -80,9 +78,6 @@ export default {
         isUser(data){
             return data.userEmail == this.$auth.user().email ? true : false
         }
-    },
-    components: {
-        navbar
     }
 }
 </script>
