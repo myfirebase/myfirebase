@@ -44,8 +44,6 @@
 
 
 <script>
-import navbar from './../components/partials/Navbar.vue'
-
 export default {
     mounted() {
         console.log("Component mounted")
@@ -138,9 +136,6 @@ export default {
             })
         }
     },
-    components: {
-        navbar
-    }
 }
 </script>
 
