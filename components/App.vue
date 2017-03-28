@@ -9,7 +9,6 @@
                 <ul class="list-group">
                     <li class="list-group-item" v-for="snapshot in data">
                         {{snapshot.data}}
-                        <span class = "pull-right delete-data" v-if="isUser(snapshot)"@click="deleteData(snapshot)"><i class="fa fa-trash"></i></span>
                     </li>
                 </ul>
             </div>
@@ -32,7 +31,6 @@ export default {
             forward: '/app',
             redirect: '/login',
             then: (user) => {
-                console.log("Logged in")
                 this.userEmail = this.$auth.user().email
             },
             catch: () => {
@@ -49,21 +47,16 @@ export default {
     data() {
         return {
             message: "welcome",
-            newData: ''
+            newData: '',
+            error: '',
+            warning: ''
         }
     },
     methods: {
         addData() {
-            this.$firebaseRefs.data.onDisconnect().cancel((err) => {
-                if (err) {
-                    console.log("Connection lost")
-                } else {
-                    console.log("Passed")
-                }
-            })
+            this.$firebaseRefs.data.onDisconnect().cancel()
             this.$firebaseRefs.data.push({
                 data: this.newData,
-                userEmail: this.$auth.user().email
             });
             this.newData = ''
         },
@@ -71,13 +64,6 @@ export default {
             this.$auth.logout();
             this.$destroy();
         },
-        deleteData(data)
-        {
-            this.$firebaseRefs.data.child(data['.key']).remove()
-        },
-        isUser(data){
-            return data.userEmail == this.$auth.user().email ? true : false
-        }
     }
 }
 </script>
