@@ -49,7 +49,6 @@ export default {
             message: "welcome",
             newData: '',
             error: '',
-            warning: ''
         }
     },
     methods: {
