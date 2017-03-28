@@ -24,7 +24,7 @@
 						<li v-if = "!signed"><router-link to = "login">Login</router-link></li>
 						<li v-if = "signed"><router-link to = 'update-profile'>Profile</router-link></li>
 						<li role="separator" class="divider"></li>
-						<li v-if = "signed"><router-link to="/login">Logout</router-link></li>
+						<li v-if = "signed"><a @click="logout()">Logout</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -36,7 +36,9 @@
 <script>
 export default {
     mounted() {
-    	this.$auth.check({
+    	this.$auth.state({
+            forward: '/update-profile',
+            redirect: '/login',
     		then: (user) => {
     			this.signed = true
     			this.userEmail = user.email
@@ -64,7 +66,7 @@ export default {
     methods:{
     	logout(){
     		this.$auth.logout()
-    		this.$destroy()
+    		this.signed = false
     	},
     	collapsAction(){
     		this.collapsClass = this.collapsClass ? '' : 'collapse navbar-collapse'
