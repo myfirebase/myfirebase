@@ -10,7 +10,8 @@
         "init": "firebase init",
         "production" : "gulp --production",
         "dev": "gulp",
-        "deploy": "firebase deploy" 
+        "deploy": "firebase deploy",
+        "login": "firebase login"
     },
     "repository": {
         "type": "git",
