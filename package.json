@@ -40,6 +40,6 @@
         "vuex-router-sync": "^2.1.1",
         "firebase": "^3.6.4",
         "vuefire": "^1.4.0",
-        "myfirebase": "^0.1.0"
+        "myfirebase": "^0.1.1"
     }
 }
