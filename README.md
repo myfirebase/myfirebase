@@ -36,6 +36,9 @@ cd myfirebase
 # Install dependencies
 npm install
 
+# Sign in using your Google account
+npm run login
+
 # Initialize firebase project
 npm run init
 
