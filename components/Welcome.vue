@@ -4,17 +4,17 @@
 </div>
 </template>
 <script>
-	export default {
-		mouted(){
-			// component mounted
-		},
-		data(){
-			return {
+export default {
+    mouted() {
+        // component mounted
+    },
+    data() {
+        return {
 
-			}
-		}
+        }
+    }
 
-	}
+}
 </script>
 
 <style>
