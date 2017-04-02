@@ -67,6 +67,14 @@ export default {
                 callBack.error(error)
             });
         },
+        signInGithub(state, callBack) {
+            let provider = state.githubAuthProvider;
+            state.auth.signInWithPopup(provider).then((result) => {
+                callBack.result(result);
+            }).catch((error) => {
+                callBack.error(error)
+            });
+        },
         register(state, user) {
             const promis = state.auth.createUserWithEmailAndPassword(user.email, user.password)
             promis.then((userResult) => {
@@ -77,9 +85,6 @@ export default {
                 user.error(error)
             })
         },
-        updateProfile(state, profile) {
-
-        },
         updateProfilePicture(state, image) {
             state.auth.currentUser.updateProfile({
             photoURL: image.ref
@@ -89,6 +94,13 @@ export default {
                 image.error(error)
             })
         },
+        test(state){
+            //this.commit('test2');
+            console.log("first stage")
+        },
+        test2(state){
+            console.log("Whoops it works")
+        }
     },
     getters: {},
     actions: {}
