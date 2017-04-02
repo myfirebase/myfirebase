@@ -15,43 +15,53 @@
 @import "node_modules/font-awesome/scss/icons.scss";
 
 
-.push-down{
+.push-down {
 	margin-top: 15px;
 }
 
-.login-btn-row{
+.login-btn-row {
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-.block-username{
+.block-username {
 	cursor: none;
 	pointer-events: none;
 }
 
-.newMessage{
+.newMessage {
 	background: $brand-info;
     box-shadow: 0 0 5px 1px gray;
     color: #fff;
 }
 
-.chat-body{
+.chat-body {
 	height: 450px;
 	overflow-y: scroll;
 }
-.boxFile{
+
+.boxFile {
 	width: 100px;
 	height: 100px;
 	background: $brand-primary;
 	margin: 3px;
 }
 
-.files-container{
+.files-container {
 	padding-left: 20px;
 }
 
-.facebook-color{
-	background: $facebook-color;
+.facebook-color {
+	background: $btn-facebook-color;
+	color: #fff;
+}
+
+.facebook-color:hover {
+	color: #fff;
+}
+
+.github-color {
+	background: $btn-github-color;
 	color: #fff;
 }
 
