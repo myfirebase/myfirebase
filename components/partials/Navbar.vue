@@ -19,7 +19,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="">
-					<a href="#" role="button" @click = "toggle = !toggle">{{userEmail}} <span class="caret"></span></a>
+					<a href="#" role="button" @click = "toggle = !toggle">{{username}} <span class="caret"></span></a>
 					<ul v-if="toggle" class="dropdown-menu">
 						<li v-if = "!signed"><router-link to = "login">Login</router-link></li>
 						<li v-if = "signed"><router-link to = 'update-profile'>Profile</router-link></li>
@@ -41,10 +41,10 @@ export default {
             redirect: '/login',
     		then: (user) => {
     			this.signed = true
-    			this.userEmail = user.email
+    			this.username = user.displayName
     		},
     		catch: () => {
-    			this.userEmail = "Auth"
+    			this.username = "Auth"
     		}
     	})
     },
@@ -53,7 +53,7 @@ export default {
             Logo: "Myfirebase",
             toggle: false,
             signed: false,
-            userEmail: '',
+            username: '',
             collapsClass: 'collapse navbar-collapse'
         }
     },
