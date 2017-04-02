@@ -14,7 +14,6 @@ $brand-info: #0097A7;
 $brand-success: #43A047;
 $brand-warning: #FF9800;
 $brand-danger: #D50000;
-$facebook-color: #3b5998;
 
 
 // Typography
@@ -27,7 +26,10 @@ $text-color: #636b6f;
 $navbar-default-bg: #fff;
 
 // Buttons
+
+$btn-facebook-color: #3b5998;
 $btn-default-color: $text-color;
+$btn-github-color: #000;
 
 // Inputs
 $input-border: lighten($text-color, 40%);
