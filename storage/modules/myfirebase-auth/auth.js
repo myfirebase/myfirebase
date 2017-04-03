@@ -93,13 +93,6 @@ export default {
             }).catch(error => {
                 image.error(error)
             })
-        },
-        test(state){
-            //this.commit('test2');
-            console.log("first stage")
-        },
-        test2(state){
-            console.log("Whoops it works")
         }
     },
     getters: {},
