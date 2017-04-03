@@ -46,22 +46,13 @@
 <script>
 export default {
     mounted() {
-        console.log("Component mounted")
         this.$auth.state({
             forward: '/update-profile',
             rederict: '/login',
             then: (user) => {
                 this.userEmail = this.$auth.user().email
                 this.userName = user.displayName
-                this.$storage.getDownloadURL({
-                    ref: this.$auth.user().photoURL,
-                    result: (url) => {
-                        this.profilePicture = url
-                    },
-                    error: (error) => {
-                        this.error = error.message
-                    }
-                })
+                this.profilePicture = this.$auth.user().photoURL
             },
             catch: () => {}
         })
@@ -96,14 +87,16 @@ export default {
                 error: (err) => {
                     this.error = err.message
                 },
-                completed: (fileName) => {
-                    this.updateProfilePicture(name)
+                completed: (downloadURL) => {
+                    console.log(downloadURL)
+                    this.updateProfilePicture(downloadURL)
+                    this.newPhoto = null
                 }
             })
         },
         updateProfilePicture(fileName) {
             this.$auth.updateProfilePicture({
-                ref: `/images/${fileName}`,
+                ref: `${fileName}`,
                 result: () => {
                     this.message = "Updated!!"
                     this.synchronize()
@@ -125,7 +118,7 @@ export default {
             })
         },
         synchronize() {
-            this.$storage.getDownloadURL({
+            /*this.$storage.getDownloadURL({
                 ref: this.$auth.user().photoURL,
                 result: (url) => {
                     this.profilePicture = url
@@ -133,9 +126,10 @@ export default {
                 error: (error) => {
                     this.error = error.message
                 }
-            })
+            })*/
+            this.profilePicture = this.$auth.user().photoURL
         }
-    },
+    }
 }
 </script>
 
