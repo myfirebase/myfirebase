@@ -24,8 +24,8 @@ export default {
                 function error(err) {
                     file.error(err)
                 },
-                function completed(filename) {
-                    file.completed(filename)
+                function completed() {
+                    file.completed(task.snapshot.downloadURL)
                 });
         },
         deleteFile(state, file) {
