@@ -44,7 +44,6 @@
 <script>
 export default {
     mounted() {
-        this.$store.commit('auth/test')
         this.$auth.logout()
         this.$auth.state({
             forward: '/app',
