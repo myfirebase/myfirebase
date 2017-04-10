@@ -1,8 +1,5 @@
 {
-    "name": "myfirebase-framework",
-    "version": "0.0.1",
-    "description": "myfirebase",
-    "main": "index.js",
+    "private": "ture",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "serve": "firebase serve",
@@ -15,12 +12,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/amranidev/myfirebase.git"
+        "url": "git+https://github.com/myfirebase/myfirebase.git"
     },
     "author": "Amrani Houssain",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/amranidev/myfirebase/issues"
+        "url": "https://github.com/myfirebase/myfirebase/issues"
     },
     "homepage": "https://github.com/amranidev/myfirebase#readme",
     "devDependencies": {
