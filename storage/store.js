@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {firebase} from './../app/firebase/firebase'
+import {firebase} from './../src/firebase/firebase'
 import auth from './../storage/modules/myfirebase-auth/auth'
 import storage from './../storage/modules/myfirebase-storage/storage'
 
@@ -27,11 +27,7 @@ export default new Vuex.Store({
     // mutations
     mutations: {},
     // getters
-    getters: {
-        getError: state => {
-            return state.error
-        }
-    },
+    getters: {},
     //actions
     actions: {}
 })

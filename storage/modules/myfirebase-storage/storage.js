@@ -1,6 +1,4 @@
-import {
-    firebase
-} from './../../../app/firebase/firebase'
+import { firebase } from './../../../src/firebase/firebase'
 
 // firebase storage
 const storage = firebase.storage();

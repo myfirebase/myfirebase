@@ -1,6 +1,4 @@
-import {
-    firebase
-} from './../../../app/firebase/firebase'
+import { firebase } from './../../../src/firebase/firebase'
 
 // setup auth
 const auth = firebase.auth();
@@ -87,7 +85,7 @@ export default {
         },
         updateProfilePicture(state, image) {
             state.auth.currentUser.updateProfile({
-            photoURL: image.ref
+                photoURL: image.ref
             }).then(() => {
                 image.result()
             }).catch(error => {
