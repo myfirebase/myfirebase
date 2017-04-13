@@ -1,0 +1,67 @@
+/*Fonts*/
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+/* Variables */
+@import "variables";
+
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+/* Bootstrap */
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.push-down {
+	margin-top: 15px;
+}
+
+.login-btn-row {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.block-username {
+	cursor: none;
+	pointer-events: none;
+}
+
+.newMessage {
+	background: $brand-info;
+    box-shadow: 0 0 5px 1px gray;
+    color: #fff;
+}
+
+.chat-body {
+	height: 450px;
+	overflow-y: scroll;
+}
+
+.boxFile {
+	width: 100px;
+	height: 100px;
+	background: $brand-primary;
+	margin: 3px;
+}
+
+.files-container {
+	padding-left: 20px;
+}
+
+.facebook-color {
+	background: $btn-facebook-color;
+	color: #fff;
+}
+
+.facebook-color:hover {
+	color: #fff;
+}
+
+.github-color {
+	background: $btn-github-color;
+	color: #fff;
+}
+
+.dropdown-menu {
+	display: block;
+}
