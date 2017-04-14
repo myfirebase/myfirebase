@@ -5,12 +5,14 @@
 /* Variables */
 @import "variables";
 
-//@import "bootstrap-sprockets";
-//@import "bootstrap";
+$fa-font-path: '~font-awesome/fonts/';
+
+@import '~font-awesome/scss/font-awesome';
+
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-/* Bootstrap */
-//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
 
 .push-down {
 	margin-top: 15px;
