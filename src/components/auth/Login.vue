@@ -112,7 +112,7 @@ export default {
                     console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
-                    console.log("Error : " + error.message)
+                    this.error = error.message
                 }
             })
         },
@@ -124,7 +124,7 @@ export default {
                     console.log(result.user)
                 },
                 error: (error) => {
-                    console.log("Error : " + error.message)
+                    this.error = error.message
                 }
             })
         },
@@ -135,7 +135,7 @@ export default {
                     console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
-                    console.log("Error : " + error.message)
+                    this.error = error.message
                 }
             })
         }
