@@ -10,7 +10,7 @@ export default {
     mounted() {
         this.$auth.check({
             then: (user) =>{
-                console.log("logged in")
+                // User loggedin
             },
             catch: ()=> {}
         });
