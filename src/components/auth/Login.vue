@@ -80,7 +80,7 @@ export default {
                 email: this.email,
                 password: this.password,
                 result: (user) => {
-                    console.log("User Email : " + user.email)
+                    //console.log("User Email : " + user.email)
                 },
                 error: (error) => {
                     this.error = error.message
@@ -97,7 +97,7 @@ export default {
                     // This gives you a Google Access Token. You can use it to access the Google API.
                     // console.log("Token : " + result.credential.accessToken)
                     // The signed-in user info.
-                    console.log("User Email : " + result.user.email)
+                    //console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
                     // Error
@@ -109,7 +109,7 @@ export default {
             this.$auth.signInWithFacebook({
                 result: (result) => {
                     //console.log("Token : " + result.credential.accessToken)
-                    console.log("User Email : " + result.user.email)
+                    //console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
                     this.error = error.message
@@ -120,8 +120,8 @@ export default {
             this.$auth.signInWithTwitter({
                 result: (result) => {
                     //console.log("Token : " + result.credential.accessToken)
-                    console.log("User Email : " + result.user.email)
-                    console.log(result.user)
+                    //console.log("User Email : " + result.user.email)
+                    //console.log(result.user)
                 },
                 error: (error) => {
                     this.error = error.message
@@ -132,7 +132,7 @@ export default {
             this.$auth.signInWithGithub({
                 result: (result) => {
                     //console.log("Token : " + result.credential.accessToken)
-                    console.log("User Email : " + result.user.email)
+                    //console.log("User Email : " + result.user.email)
                 },
                 error: (error) => {
                     this.error = error.message
