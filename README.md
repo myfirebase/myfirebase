@@ -38,13 +38,26 @@ firebase login
 
 # Initialize firebase project
 firebase init
+```
 
+### Run dev server
+
+```shell
 # Run the server
 npm run dev
+```
 
+### Production
+
+
+```shell
 # Production
 npm run build
+```
 
+### Deploy your project
+
+```shell
 # Deploy project
 firebase deploy
 ```
