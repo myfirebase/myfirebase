@@ -1,6 +1,6 @@
 {
   "version": "0.1.4",
-  "description": "A Vue.js project",
+  "description": "Myfirebase is a decoupled SPAs framework which is highly compatible with Google Firebase",
   "author": "Amrani Houssain <amranidev@gmail.com>",
   "bugs": {
     "url": "https://github.com/myfirebase/myfirebase/issues"
