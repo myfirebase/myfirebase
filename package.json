@@ -19,11 +19,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.16.1",
+    "firebase": "^3.x.x",
     "vue": "^2.2.2",
     "vue-router": "^2.3.0",
-    "vuex": "^2.0.0",
-    "firebase": "^3.x.x",
-    "vuefire": "^1.4.2"
+    "vuefire": "^1.4.2",
+    "vuex": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
