@@ -23,15 +23,13 @@
                     </div>
                 </div>
                 <h3>Personal info</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email" :value="userEmail">
-                    </div>
-                    <div class="form-group">
-                        <input v-model="userName" type="text" class="form-control" placeholder="Username">
-                    </div>
-                    <button class="btn btn-primary" @click ="updateProfile()">Save Changes</button>
-                </form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" :value="userEmail">
+                </div>
+                <div class="form-group">
+                    <input v-model="userName" type="text" class="form-control" placeholder="Username">
+                </div>
+                <a class="btn btn-primary" @click ="updateProfile()">Save Changes</a>
             </div>
         </div>
     </div>
