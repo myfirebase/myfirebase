@@ -30,10 +30,10 @@
                     </div>
                 </div>
                 <div class="push-down" align="center">
-                    <button class = 'btn btn-danger btn-sm' @click = "signInGoogle()">Google <i class="fa fa-google"></i></button>
-                    <button class="btn facebook-color btn-sm" @click = "signInFacebook()">Facebook <i class="fa fa-facebook"></i></button>
-                    <button class="btn btn-primary btn-sm" @click="signInTwitter()">Twitter <i class="fa fa-twitter"></i></button>
-                    <button class = "btn github-color btn-sm" @click="signInGithub()">Github <i class="fa fa-github"></i></button>
+                    <button class = 'btn btn-danger btn-xs' @click = "signInGoogle()">Google <i class="fa fa-google"></i></button>
+                    <button class="btn facebook-color btn-xs" @click = "signInFacebook()">Facebook <i class="fa fa-facebook"></i></button>
+                    <button class="btn btn-primary btn-xs" @click="signInTwitter()">Twitter <i class="fa fa-twitter"></i></button>
+                    <button class = "btn github-color btn-xs" @click="signInGithub()">Github <i class="fa fa-github"></i></button>
                 </div>
             </div>
         </div>
