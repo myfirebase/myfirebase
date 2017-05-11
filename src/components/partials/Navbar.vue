@@ -9,7 +9,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">{{Logo}}</a>
+			<router-link to="/" class = "navbar-brand">{{logo}}</router-link>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div :class="collaps">
@@ -50,7 +50,7 @@ export default {
     },
     data() {
         return {
-            Logo: "Myfirebase",
+            logo: "Myfirebase",
             toggle: false,
             signed: false,
             username: '',
