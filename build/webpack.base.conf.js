@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var OfflinePlugin = require('offline-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -35,7 +36,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'),resolve('storage')]
+        include: [resolve('src'), resolve('test'), resolve('storage')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -54,5 +55,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins:[
+    new OfflinePlugin()
+  ]
 }
