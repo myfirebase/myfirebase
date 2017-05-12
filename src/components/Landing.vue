@@ -28,7 +28,6 @@ export default {
 }
 </script>
 
-
 <style>
     .flex{
         height: 500px;
