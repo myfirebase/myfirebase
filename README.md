@@ -14,6 +14,9 @@
 
 > Currently Myfirebase is in development stage, Thank you for your testing.
 
+## Docs
+
+[Documentation](https://github.com/myfirebase/docs).
 
 ## Prerequisites
 
