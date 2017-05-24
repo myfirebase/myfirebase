@@ -25,8 +25,6 @@ const app = new Vue({
     router,
     store,
     data() {
-        return {
-            default: "Default"
-        }
+        return {}
     }
 }).$mount('#app');
