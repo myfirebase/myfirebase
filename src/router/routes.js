@@ -1,4 +1,4 @@
-
+// Routes
 import Landing from '@/components/Landing'
 import Welcome from '@/components/Welcome'
 import Login from '@/components/auth/Login'
