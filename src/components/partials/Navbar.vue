@@ -22,49 +22,51 @@
 					<router-link to='update-profile'>Profile</router-link>
 				</li>
 				<li role="separator" class="divider"></li>
-				<li v-if="signed"><a href="/login" @click="logout()">Logout</a></li>
+				<li v-if="signed">
+					<a href="/login" @click="logout()">Logout</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
 </template>
 
 <script>
-	export default {
-		mounted() {
-			this.$auth.state({
-				forward: '/update-profile',
-				redirect: '/login',
-				then: (user) => {
-					this.signed = true
-					this.username = user.displayName
-				},
-				catch: () => {
-					this.username = "Auth"
-				}
-			})
-		},
-		data() {
-			return {
-				logo: "Myfirebase",
-				toggle: false,
-				signed: false,
-				username: '',
-				collapsClass: 'collapse navbar-collapse'
-			}
-		},
-		computed: {
-			collaps() {
-				return this.collapsClass
-			}
-		},
-		methods: {
-			logout() {
-				this.$auth.logout()
-				this.signed = false
+export default {
+	mounted() {
+		this.$auth.state({
+			forward: '/update-profile',
+			redirect: '/login',
+			then: (user) => {
+				this.signed = true
+				this.username = user.displayName
 			},
-			collapsAction() {
-				this.collapsClass = this.collapsClass ? '' : 'collapse navbar-collapse'
+			catch: () => {
+				this.username = "Auth"
 			}
+		})
+	},
+	data() {
+		return {
+			logo: "Myfirebase",
+			toggle: false,
+			signed: false,
+			username: '',
+			collapsClass: 'collapse navbar-collapse'
+		}
+	},
+	computed: {
+		collaps() {
+			return this.collapsClass
+		}
+	},
+	methods: {
+		logout() {
+			this.$auth.logout()
+			this.signed = false
+		},
+		collapsAction() {
+			this.collapsClass = this.collapsClass ? '' : 'collapse navbar-collapse'
 		}
 	}
+}
 </script>
