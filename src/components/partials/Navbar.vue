@@ -34,7 +34,7 @@
 export default {
 	mounted() {
 		this.$auth.state({
-			forward: '/update-profile',
+			forward: '',
 			redirect: '/login',
 			then: (user) => {
 				this.signed = true
