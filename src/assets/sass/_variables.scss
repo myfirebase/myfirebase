@@ -1,44 +1,36 @@
 // Body
 $body-bg: #f5f8fa;
-
 // Borders
 $myfirebase-border-color: darken($body-bg, 10%);
 $list-group-border: $myfirebase-border-color;
 $navbar-default-border: $myfirebase-border-color;
 $panel-default-border: $myfirebase-border-color;
 $panel-inner-border: $myfirebase-border-color;
-
 // Brands
 $brand-primary: #2196F3;
 $brand-info: #0097A7;
 $brand-success: #43A047;
 $brand-warning: #FF9800;
 $brand-danger: #D50000;
-
-
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Raleway",
+sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
-
 // Navbar
 $navbar-default-bg: #fff;
-
 // Buttons
-
 $btn-facebook-color: #3b5998;
 $btn-default-color: $text-color;
 $btn-github-color: #000;
-
 // Inputs
 $input-border: lighten($text-color, 40%);
 $input-border-focus: lighten($brand-primary, 25%);
 $input-color-placeholder: lighten($text-color, 30%);
-
 // Panels
 $panel-default-heading-bg: #fff;
 $panel-success-heading-bg: $brand-success;
-$panel-success-text:  #fff;
+$panel-success-text : #fff;
 $panel-primary-heading-bg: $brand-primary;
 $pabel-primary-text: #fff;
