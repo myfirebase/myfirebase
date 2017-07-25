@@ -3,67 +3,62 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 /* Variables */
+
 @import "variables";
-
 $fa-font-path: '~font-awesome/fonts/';
-
 @import '~font-awesome/scss/font-awesome';
-
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-
-
 .push-down {
-	margin-top: 15px;
+    margin-top: 15px;
 }
 
 .login-btn-row {
-	padding-left: 10px;
-	padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .block-username {
-	cursor: none;
-	pointer-events: none;
+    cursor: none;
+    pointer-events: none;
 }
 
 .newMessage {
-	background: $brand-info;
+    background: $brand-info;
     box-shadow: 0 0 5px 1px gray;
     color: #fff;
 }
 
 .chat-body {
-	height: 450px;
-	overflow-y: scroll;
+    height: 450px;
+    overflow-y: scroll;
 }
 
 .boxFile {
-	width: 100px;
-	height: 100px;
-	background: $brand-primary;
-	margin: 3px;
+    width: 100px;
+    height: 100px;
+    background: $brand-primary;
+    margin: 3px;
 }
 
 .files-container {
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 .facebook-color {
-	background: $btn-facebook-color;
-	color: #fff;
+    background: $btn-facebook-color;
+    color: #fff;
 }
 
 .facebook-color:hover {
-	color: #fff;
+    color: #fff;
 }
 
 .github-color {
-	background: $btn-github-color;
-	color: #fff;
+    background: $btn-github-color;
+    color: #fff;
 }
 
 .dropdown-menu {
-	display: block;
+    display: block;
 }
