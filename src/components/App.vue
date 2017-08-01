@@ -38,6 +38,10 @@
                     this.$destroy()
                 }
             })
+            this.$store.state.messaging.getToken()
+            .then((token) => {
+                this.token = token
+            })
         },
         firebase() {
             return {
@@ -49,6 +53,7 @@
                 message: "welcome",
                 newData: '',
                 error: '',
+                token: ''
             }
         },
         methods: {
@@ -57,7 +62,8 @@
                 this.$firebaseRefs.data.push({
                     data: this.newData,
                     email: this.$auth.user().email,
-                    name: this.$auth.user().displayName
+                    name: this.$auth.user().displayName,
+                    token: this.token
                 });
                 this.newData = ''
             },
