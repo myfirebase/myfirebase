@@ -95,7 +95,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             cacheId: 'my-vue-app',
             filename: 'service-worker.js',
             staticFileGlobs: ['public/**/*.{js,html,css}'],
-            minify: false,
+            minify: true,
             stripPrefix: 'public/'
         })
     ]
