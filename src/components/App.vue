@@ -41,7 +41,6 @@
             this.$store.state.messaging.getToken()
             .then((token) => {
                 this.token = token
-                console.log("token is " +this.token)
             })
         },
         firebase() {
