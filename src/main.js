@@ -27,10 +27,10 @@ const app = new Vue({
             this.$store.state.messaging
                 .requestPermission()
                 .then(function() {
-                    console.log("accept FCM")
+                    console.log("Permission accepted")
                 })
                 .catch(function(error) {
-                    console.log("Not Accepted")
+                    console.log("Permission denied")
                 })
         }
     },
