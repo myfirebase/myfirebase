@@ -7,10 +7,13 @@ import router from './router'
 import store from './../storage/store'
 import VueFire from 'vuefire'
 import Myfirebase from 'myfirebase'
+import VueMaterial from 'vue-material';
 
 Vue.config.productionTip = false
 
 Vue.use(VueFire)
+
+Vue.use(VueMaterial)
 
 Vue.use(Myfirebase, {
     store: store,
