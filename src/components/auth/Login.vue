@@ -1,44 +1,43 @@
 <template>
-<div class="push-down">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="alert alert-danger alert-dismissable" v-if = "error">
-                    <a href="#" class="close" @click="error = ''">&times;</a>
-                    <strong>{{error}}</strong>
-                </div>
-                <div class="push-down"></div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        login | register
-                    </div>
-                    <div class="panel-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="email" class = "form-control" placeholder="Email" v-model ="email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class = "form-control" placeholder="Password" v-model="password" v-on:keyup.enter= "login()">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="row login-btn-row">
-                            <button class="btn btn-default pull-left" @click = "login()" :disabled="loginState">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-                            <button class="btn btn-success pull-right" @click = "register" :disabled="loginState" >Register <i class="fa fa-user-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="push-down" align="center">
-                    <button class = 'btn btn-danger btn-xs' @click = "signInGoogle()">Google <i class="fa fa-google"></i></button>
-                    <button class="btn facebook-color btn-xs" @click = "signInFacebook()">Facebook <i class="fa fa-facebook"></i></button>
-                    <button class="btn btn-primary btn-xs" @click="signInTwitter()">Twitter <i class="fa fa-twitter"></i></button>
-                    <button class = "btn github-color btn-xs" @click="signInGithub()">Github <i class="fa fa-github"></i></button>
-                </div>
+        <div id="app">
+            <br>
+            <md-layout md-tag="form" novalidate md-align="center">
+                <md-layout md-tag="md-card" md-column md-flex="30" md-flex-medium="40" md-flex-small="60" md-flex-xsmall="90" class="md-primary">
+                    <md-card-header>
+                        <div class="md-title">Login</div>
+                    </md-card-header>
+                    <md-card-content>
+                        <md-input-container>
+                            <md-icon>person</md-icon>
+                            <label>Email</label>
+                            <md-input email required v-model="email" />
+                        </md-input-container>
+                        <md-input-container md-has-password>
+                            <md-icon>lock</md-icon>
+                            <label>Passowrd</label>
+                            <md-input type="password" required v-model="password" />
+                        </md-input-container>
+                    </md-card-content>
+    
+                    <md-card-actions>
+                        <md-button @click="login()">Login</md-button>
+                        <md-button @click="register()">Register</md-button>
+                    </md-card-actions>
+                    
+                </md-layout>
+            </md-layout>
+        </div>
+        <div id="popup1" class="overlay" v-if="!ready">
+            <div class="flex-spinner">
+                <md-spinner :md-size="150" md-indeterminate></md-spinner>
             </div>
         </div>
+        <md-snackbar :md-position="'top center'" ref="snackbar2" :md-duration="4000">
+            <span>{{error}}</span>
+            <md-icon class="md-accent">warning</md-icon>
+        </md-snackbar>
     </div>
-</div>
 </template>
 <script>
 export default {
@@ -47,8 +46,12 @@ export default {
         this.$auth.state({
             forward: '/app',
             redirect: '/login',
-            then: (user) => {},
-            catch: () => {}
+            then: (user) => {
+
+            },
+            catch: () => {
+                this.ready = true;
+            }
         });
     },
     data() {
@@ -57,23 +60,28 @@ export default {
             password: '',
             loginState: false,
             error: '',
+            ready: false
         }
     },
     computed: {},
     methods: {
         login() {
+            this.ready = false
             this.loginState = true
             this.$auth.loginWithEmailAndPassowrd({
                 email: this.email,
                 password: this.password,
                 result: (user) => {
+                    this.ready = true;
                 },
                 error: (error) => {
+                    this.$refs.snackbar2.open()
+                    this.ready = true;
                     this.error = error.message
                 }
             })
             this.middleware()
-        },  
+        },
         register() {
             this.loginState = true;
             this.$auth.registerWithEmailAndPassword({
@@ -142,3 +150,26 @@ export default {
     }
 }
 </script>
+
+
+<style>
+.overlay {
+    z-index: 9000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+}
+
+.flex-spinner {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
