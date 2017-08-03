@@ -1,64 +1,30 @@
 /*Fonts*/
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 /* Variables */
 
 @import "variables";
-$fa-font-path: '~font-awesome/fonts/';
-@import '~font-awesome/scss/font-awesome';
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
-.push-down {
-    margin-top: 15px;
-}
-
-.login-btn-row {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.block-username {
-    cursor: none;
-    pointer-events: none;
-}
-
-.newMessage {
-    background: $brand-info;
-    box-shadow: 0 0 5px 1px gray;
-    color: #fff;
-}
-
-.chat-body {
-    height: 450px;
-    overflow-y: scroll;
-}
-
-.boxFile {
-    width: 100px;
-    height: 100px;
-    background: $brand-primary;
-    margin: 3px;
-}
-
-.files-container {
-    padding-left: 20px;
-}
-
-.facebook-color {
-    background: $btn-facebook-color;
-    color: #fff;
-}
-
-.facebook-color:hover {
-    color: #fff;
-}
-
-.github-color {
-    background: $btn-github-color;
-    color: #fff;
-}
-
-.dropdown-menu {
-    display: block;
-}
+@import '~vue-material/dist/components/mdAvatar/index.css';
+@import '~vue-material/dist/components/mdBackdrop/index.css';
+@import '~vue-material/dist/components/mdButton/index.css';
+@import '~vue-material/dist/components/mdCard/index.css';
+@import '~vue-material/dist/components/mdCore/index.css';
+@import '~vue-material/dist/components/mdIcon/index.css';
+@import '~vue-material/dist/components/mdLayout/index.css';
+@import '~vue-material/dist/components/mdList/index.css';
+@import '~vue-material/dist/components/mdMenu/index.css';
+@import '~vue-material/dist/components/mdSelect/index.css';
+@import '~vue-material/dist/components/mdSidenav/index.css';
+@import '~vue-material/dist/components/mdSpeedDial/index.css';
+@import '~vue-material/dist/components/mdSubheader/index.css';
+@import '~vue-material/dist/components/mdTabs/index.css';
+@import '~vue-material/dist/components/mdToolbar/index.css';
+@import '~vue-material/dist/components/mdWhiteframe/index.css';
+@import '~vue-material/dist/components/mdSwitch/index.css';
+@import '~vue-material/dist/components/mdInputContainer/index.css';
+@import '~vue-material/dist/components/mdSnackbar/index.css';
+@import '~vue-material/dist/components/mdDialog/index.css';
+@import '~vue-material/dist/components/mdTable/index.css';
+@import '~vue-material/dist/components/mdSpinner/index.css';
