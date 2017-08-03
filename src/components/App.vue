@@ -1,83 +1,87 @@
 <template>
     <div class="container">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    Data
-                </div>
-                <div class="panel-body">
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="snapshot in data">
-                            {{snapshot.data}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <input type="text" class="form-control" v-model="newData" v-on:keyup.enter="addData()" placeholder="Write something...">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary" @click="addData()">Add</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <br> 
+        <md-layout md-gutter>
+            <md-layout md-flex="100" md-flex-xsmall="100" md-align="center">
+                <md-whiteframe class="sub-container">
+                    <md-list>
+                        <md-subheader>Data Example</md-subheader>
+                        <md-list-item v-for="snapshot in data" :key="snapshot.data">
+                            <span>
+                                {{snapshot.data}}
+                            </span>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-input-container>
+                                <label>Write</label>
+                                <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
+                            </md-input-container>
+                            <md-button class = "md-raised md-primary">Add</md-button>
+                        </md-list-item>
+                    </md-list>
+                </md-whiteframe>
+            </md-layout>
+        </md-layout>
     </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            this.$auth.state({
-                forward: '/app',
-                redirect: '/login',
-                then: (user) => {
-                    this.userEmail = this.$auth.user().email
-                },
-                catch: () => {
-                    this.$destroy()
-                }
-            })
-            this.$store.state.messaging.getToken()
+export default {
+    mounted() {
+        this.$auth.state({
+            forward: '/app',
+            redirect: '/login',
+            then: (user) => {
+                this.userEmail = this.$auth.user().email
+            },
+            catch: () => {
+                this.$destroy()
+            }
+        })
+        this.$store.state.messaging.getToken()
             .then((token) => {
                 this.token = token
             })
-        },
-        firebase() {
-            return {
-                data: this.$store.state.database.child('data'),
-            }
-        },
-        data() {
-            return {
-                message: "welcome",
-                newData: '',
-                error: '',
-                token: ''
-            }
-        },
-        methods: {
-            addData() {
-                this.$firebaseRefs.data.onDisconnect().cancel()
-                this.$firebaseRefs.data.push({
-                    data: this.newData,
-                    email: this.$auth.user().email,
-                    name: this.$auth.user().displayName,
-                    token: this.token
-                });
-                this.newData = ''
-            },
-            logout() {
-                this.$auth.logout();
-                this.$destroy();
-            },
+    },
+    firebase() {
+        return {
+            data: this.$store.state.database.child('data'),
         }
+    },
+    data() {
+        return {
+            message: "welcome",
+            newData: '',
+            error: '',
+            token: ''
+        }
+    },
+    methods: {
+        addData() {
+            this.$firebaseRefs.data.onDisconnect().cancel()
+            this.$firebaseRefs.data.push({
+                data: this.newData,
+                email: this.$auth.user().email,
+                name: this.$auth.user().displayName,
+                token: this.token
+            });
+            this.newData = ''
+        },
+        logout() {
+            this.$auth.logout();
+            this.$destroy();
+        },
     }
+}
 </script>
 
 <style scoped>
-    .delete-data {
-        cursor: pointer;
-        color: red;
-    }
+
+.sub-container {
+    width: 60%
+}
+.delete-data {
+    cursor: pointer;
+    color: red;
+}
 </style>
