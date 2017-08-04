@@ -23,7 +23,7 @@
 				</md-list-item>
 	
 				<md-list-item class="md-primary">
-					<router-link @click.native="$refs.leftSidenav.toggle()" to="/create-posts">
+					<router-link @click.native="$refs.leftSidenav.toggle()" to="/update-profile">
 						<md-icon>person</md-icon>
 						<span>Update Profile</span>
 					</router-link>
