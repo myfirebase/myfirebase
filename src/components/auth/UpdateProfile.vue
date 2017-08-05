@@ -23,50 +23,19 @@
                                 <label>Username</label>
                                 <md-input v-model="userName"></md-input>
                             </md-input-container>
-                            </md-card-content>
+                            <md-input-container>
+                                <label>Update Avatar</label>
+                                <md-file @change.native="getFile"></md-file>
+                            </md-input-container>
+                        </md-card-content>
                         <md-card-actions>
-                            <md-button>Action</md-button>
-                            <md-button>Action</md-button>
+                            <md-button @click="updateProfile()">Save Changes</md-button>
+                            <md-button v-if="newPhoto" @click.native="updateAvatar()">Update Avatar</md-button>
                         </md-card-actions>
                     </md-card>
                 </md-layout>
             </md-layout>
         </md-layout>
-        <div class="row">
-            <div class="col-md-3 col-sm-12" align="center">
-                <img :src="profilePicture" alt="Prifile Picture" class="img-circle img-responsive img-rounded img-thumbnail image">
-                <div class="push-down">
-                    <label class="btn btn-default">
-                        <input type="file" class="hidden" @change="getFile"> Browse
-                        <i class="fa fa-file"></i>
-                    </label>
-                    <button v-if="newPhoto" class="btn btn-primary" :disabled="uploading" @click="updateAvatar()">
-                        <i v-if="uploading" class="fa fa-spinner fa-spin"></i> update</i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-9 col-sm-12">
-                <div class="push-down">
-                    <div class="alert alert-danger" v-if="error">
-                        <a href="#" class="close" @click="error = ''">&times;</a>
-                        <p align="center">{{error}}</p>
-                    </div>
-                    <div class="alert alert-success" v-if="message">
-                        <a href="#" class="close" @click="message = ''">&times;</a>
-                        <p align="center">{{message}}</p>
-                    </div>
-                </div>
-                <h3>Personal info</h3>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Email" :value="userEmail">
-                </div>
-                <div class="form-group">
-                    <input v-model="userName" type="text" class="form-control" placeholder="Username">
-                </div>
-                <a class="btn btn-primary" @click="updateProfile()" :disabled="saving">
-                    <i v-if="saving" class="fa fa-spinner fa-spin"></i> Save Changes</a>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -175,5 +144,10 @@ export default {
 .profile-card {
     margin-top: 20px;
     width: 50%;
+}
+
+.hidden {
+    opacity: 0;
+    width: 0;
 }
 </style>
