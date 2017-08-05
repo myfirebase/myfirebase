@@ -78,7 +78,7 @@ export default {
 <style scoped>
 
 .sub-container {
-    width: 60%
+    /*width: 60%*/
 }
 .delete-data {
     cursor: pointer;
