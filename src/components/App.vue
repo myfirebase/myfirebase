@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        <br> 
         <md-layout md-gutter>
-            <md-layout md-flex="100" md-flex-xsmall="100" md-align="center">
-                <md-whiteframe class="sub-container">
+            <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
+                <md-whiteframe class="data-container">
                     <md-list>
                         <md-subheader>Data Example</md-subheader>
                         <md-list-item v-for="snapshot in data" :key="snapshot.data">
@@ -16,7 +15,7 @@
                                 <label>Write</label>
                                 <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
                             </md-input-container>
-                            <md-button class = "md-raised md-primary">Add</md-button>
+                            <md-button class = "md-raised md-primary" @click.native="addData()">Add</md-button>
                         </md-list-item>
                     </md-list>
                 </md-whiteframe>
@@ -77,11 +76,11 @@ export default {
 
 <style scoped>
 
-.sub-container {
-    /*width: 60%*/
-}
 .delete-data {
     cursor: pointer;
     color: red;
+}
+.data-container{
+    width: 700px;
 }
 </style>
