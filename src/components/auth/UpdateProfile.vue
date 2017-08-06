@@ -25,7 +25,7 @@
                             </md-input-container>
                             <md-input-container>
                                 <label>Update Avatar</label>
-                                <md-file @change.native="getFile"></md-file>
+                                <md-file @change.native="getFile" accept="image/*"></md-file>
                             </md-input-container>
                         </md-card-content>
                         <md-card-actions>
@@ -36,6 +36,15 @@
                 </md-layout>
             </md-layout>
         </md-layout>
+        <div id="popup1" class="overlay" v-if="ready">
+            <div class="flex-spinner">
+                <md-spinner :md-size="150" md-indeterminate></md-spinner>
+            </div>
+        </div>
+        <md-snackbar :md-position="'top center'" ref="snackbar" :md-duration="4000">
+            <span>{{message}}</span>
+            <md-icon class="md-accent">warning</md-icon>
+        </md-snackbar>
     </div>
 </template>
 
@@ -49,7 +58,7 @@ export default {
                 this.userEmail = this.$auth.user().email
                 this.userName = user.displayName
                 this.profilePicture = this.$auth.user().photoURL
-                console.log(this.profilePicture)
+                this.ready = false
             },
             catch: () => { }
         })
@@ -62,8 +71,7 @@ export default {
             userName: '',
             newPhoto: null,
             error: '',
-            saving: false,
-            uploading: false,
+            ready: true,
         }
     },
     computed: {},
@@ -75,20 +83,22 @@ export default {
             if (!this.newPhoto) {
                 return
             }
-            this.uploading = true
+            this.ready = true
             let name = this.newPhoto.name
             this.$storage.upload({
                 ref: `/images/${name}`,
                 file: this.newPhoto,
                 progress: (snapshot) => { },
                 error: (err) => {
-                    this.error = err.message
+                    this.message = err.message
+                    this.$refs.snackbar.open()
                 },
                 completed: (downloadURL) => {
-                    console.log(downloadURL)
                     this.updateProfilePicture(downloadURL)
+                    this.message = "Your avatar has been updated"
+                    this.$refs.snackbar.open()
                     this.newPhoto = null
-                    this.uploading = false
+                    this.ready = false
                 }
             })
         },
@@ -96,17 +106,16 @@ export default {
             this.$auth.updateProfilePicture({
                 ref: `${fileName}`,
                 result: () => {
-                    this.message = "Updated!!"
                     this.synchronize()
                 },
                 error: (error) => {
-                    this.error = error.message
-                    console.log(this.error)
+                    this.message = error.message
+                    this.$refs.snackbar.open()
                 }
             })
         },
         updateProfile() {
-            this.saving = true
+            this.ready = true
             this.$auth.user().updateProfile({
                 displayName: this.userName,
                 email: this.userEmail
@@ -121,10 +130,12 @@ export default {
                     })
                 })
                 this.message = "Updated"
-                this.saving = false
+                this.$refs.snackbar.open()
+                this.ready = false
             }).catch(error => {
-                this.error = error.message
-                this.saving = false
+                this.message = error.message
+                this.$refs.snackbar.open()
+                this.ready = false
             })
         },
         synchronize() {
@@ -135,7 +146,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .image {
     max-width: 200px;
     min-width: 150px;
