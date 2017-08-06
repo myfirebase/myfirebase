@@ -24,7 +24,6 @@
                         <md-button @click="login()">Login</md-button>
                         <md-button @click="register()">Register</md-button>
                     </md-card-actions>
-                    
                 </md-layout>
             </md-layout>
         </div>
@@ -33,7 +32,7 @@
                 <md-spinner :md-size="150" md-indeterminate></md-spinner>
             </div>
         </div>
-        <md-snackbar :md-position="'top center'" ref="snackbar2" :md-duration="4000">
+        <md-snackbar :md-position="'top center'" ref="snackbar" :md-duration="4000">
             <span>{{error}}</span>
             <md-icon class="md-accent">warning</md-icon>
         </md-snackbar>
@@ -75,7 +74,7 @@ export default {
                     this.ready = true;
                 },
                 error: (error) => {
-                    this.$refs.snackbar2.open()
+                    this.$refs.snackbar.open()
                     this.ready = true;
                     this.error = error.message
                 }
@@ -153,23 +152,5 @@ export default {
 
 
 <style>
-.overlay {
-    z-index: 9000;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: visible;
-    opacity: 1;
-}
 
-.flex-spinner {
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 </style>
