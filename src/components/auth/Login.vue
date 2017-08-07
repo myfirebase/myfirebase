@@ -175,13 +175,5 @@ export default {
 
 
 <style scoped>
-.facebook {
-    background: #3b5998;
-    color: #fff;
-}
 
-.facebook:hover {
-    background: #3b5998;
-    color: #fff;
-}
 </style>
