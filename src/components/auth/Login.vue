@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" md-theme="login">
         <div id="app">
             <br>
             <md-layout md-tag="form" novalidate md-align="center">
@@ -19,12 +19,35 @@
                             <md-input type="password" required v-model="password" />
                         </md-input-container>
                     </md-card-content>
-    
                     <md-card-actions>
                         <md-button @click="login()">Login</md-button>
                         <md-button @click="register()">Register</md-button>
                     </md-card-actions>
                 </md-layout>
+            </md-layout>
+            <md-layout md-gutter md-column>
+                <md-layout md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
+                    <md-button @click.native="signInGoogle()" class="md-raised md-accent">
+                        google
+                    </md-button>
+                </md-layout>
+                <md-theme md-name="login">
+                    <md-layout md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
+                        <md-button @click.native="signInFacebook()" class="md-raised md-primary">
+                            facebook
+                        </md-button>
+                    </md-layout>
+                    <md-layout md-theme="login" md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
+                        <md-button @click.native="signInTwitter()" class="md-raised md-accent">
+                            twitter
+                        </md-button>
+                    </md-layout>
+                    <md-layout md-theme="login" md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
+                        <md-button @click.native="signInGithub()" class="md-raised md-warn">
+                            github
+                        </md-button>
+                    </md-layout>
+                </md-theme>
             </md-layout>
         </div>
         <div id="popup1" class="overlay" v-if="!ready">
@@ -151,6 +174,14 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+.facebook {
+    background: #3b5998;
+    color: #fff;
+}
 
+.facebook:hover {
+    background: #3b5998;
+    color: #fff;
+}
 </style>
