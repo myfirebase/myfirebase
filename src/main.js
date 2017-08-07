@@ -1,5 +1,5 @@
 /**
- * Require app SASS/SCSS preprocessor
+ * Require app SASS/SCSS preprocessor.
  * 
  * @see /src/assets/app.scss
  */
