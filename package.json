@@ -17,7 +17,7 @@
         "dev": "node build/dev-server.js",
         "start": "node build/dev-server.js",
         "build": "node build/build.js",
-        "test": ""
+        "test": "cross-env BABEL_ENV=test karma start tests/unit/karma.conf.js --single-run"
     },
     "dependencies": {
         "axios": "^0.16.1",
@@ -60,6 +60,11 @@
         "karma-sourcemap-loader": "^0.3.7",
         "karma-spec-reporter": "0.0.31",
         "karma-webpack": "^2.0.2",
+        "chai": "^3.5.0",
+        "cross-env": "^5.0.1",
+        "mocha": "^3.2.0",
+        "sinon": "^2.1.0",
+        "sinon-chai": "^2.8.0",
         "node-sass": "^4.5.2",
         "opn": "^4.0.2",
         "optimize-css-assets-webpack-plugin": "^1.3.0",
