@@ -1,7 +1,7 @@
 <template>
 <div class="flex">
     <img src="./../assets/img/MyFireBase.svg" alt="MyfirebaseLogo">
-    <h1>Welcome to <i>Myfirebase</i></h1>
+    <span class="md-display-2">Welcome to <i>Myfirebase</i></span>
 </div>
 </template>
 <script>
