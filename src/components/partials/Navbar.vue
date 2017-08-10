@@ -13,7 +13,7 @@
 				<md-list class="md-transparent">
 					<md-list-item class="md-avatar-list">
 						<md-avatar class="md-large">
-							<img :src="userPhoto" alt="People">
+							<img :src="userPhoto" alt="user-avatar">
 						</md-avatar>
 
 						<span style="flex: 1"></span>
