@@ -1,5 +1,5 @@
 <template>
-    <div class="container" md-theme="login">
+    <div class="container">
         <div id="app">
             <br>
             <md-layout md-tag="form" novalidate md-align="center">
