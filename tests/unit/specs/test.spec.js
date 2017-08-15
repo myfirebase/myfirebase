@@ -15,6 +15,6 @@ describe('UpdateProfile.vue', () => {
     it('type of sub-head should be string', () => {
         const Constructor = Vue.extend(UpdateProfile)
         const vm = new Constructor().$mount()
-        expect(typeof vm.$el.querySelector('.md-subhead').textContent == "string")
+        expect(typeof vm.$el.querySelector('.md-subhead').textContent).to.be.a('string')
     })
 });
