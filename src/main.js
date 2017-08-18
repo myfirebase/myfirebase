@@ -58,7 +58,7 @@ const app = new Vue({
          * firebase-messaging-sw.js is for firebase cloud messaging (FCM).
          * @see /public/service-worker.js
          * @see /public/firebase-messaging-sw.js
-         * You are free to chnage them however you like.
+         * You are free to change them however you like.
          */
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
