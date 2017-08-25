@@ -41,16 +41,16 @@
 $ myfirebase my-project
 
 # Change directory
-cd my-project
+$ cd my-project
 
 # Install dependencies
-npm install
+$ npm install
 
 # Sign in using your Google account
-firebase login
+$ firebase login
 
 # Initialize firebase project
-firebase init
+$ firebase init
 ```
 
 ### Run dev server
