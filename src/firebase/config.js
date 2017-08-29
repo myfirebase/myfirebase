@@ -1,6 +1,6 @@
 // Firebase app configuration.
 const config = {
-    // Past yout configuration here.
+    // Past your configuration here.
 } 
 
 export default config;
