@@ -16,7 +16,7 @@
 
 ## Docs
 
-[Documentation](https://github.com/myfirebase/docs).
+[Documentation](https://myfirebase.github.io).
 
 ## Prerequisites
 
