@@ -57,7 +57,7 @@ $ firebase init
 
 ```shell
 # Run the server
-npm run dev
+$ npm run dev
 ```
 
 ### Production
@@ -65,14 +65,14 @@ npm run dev
 
 ```shell
 # Production
-npm run build
+$ npm run build
 ```
 
 ### Deploy your project
 
 ```shell
 # Deploy project
-firebase deploy
+$ firebase deploy
 ```
 
 ### Contact : amranidev@gmail.com
