@@ -6,12 +6,10 @@ import UpdateProfile from '@/components/auth/UpdateProfile'
 import App from '@/components/App'
 import NotFound from '@/components/errors/404'
 
-const routes = [
-    {
+const routes = [{
         path: '/',
         component: Landing,
-        children: [
-            {
+        children: [{
                 path: '/',
                 component: Welcome,
                 name: 'Welcome'
