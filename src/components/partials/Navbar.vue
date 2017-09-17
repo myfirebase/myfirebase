@@ -15,7 +15,7 @@
 						<md-avatar class="md-large">
 							<img :src="userPhoto" alt="user-avatar">
 						</md-avatar>
-
+	
 						<span style="flex: 1"></span>
 					</md-list-item>
 	
@@ -57,7 +57,7 @@ export default {
 	mounted() {
 		this.$auth.state({
 			forward: '',
-			redirect: '/login',
+			redirect: '',
 			then: (user) => {
 				this.signed = true
 				this.userName = user.displayName
