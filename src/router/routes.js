@@ -22,12 +22,18 @@ const routes = [{
             {
                 path: '/update-profile',
                 component: UpdateProfile,
-                name: 'Profile Update'
+                name: 'Profile Update',
+                meta: {
+                    auth: true
+                }
             },
             {
                 path: '/app',
                 component: App,
-                name: 'Main app'
+                name: 'Main app',
+                meta: {
+                    auth: true
+                }
             }
         ]
     },
