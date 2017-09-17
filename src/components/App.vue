@@ -15,7 +15,7 @@
                                 <label>Write</label>
                                 <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
                             </md-input-container>
-                            <md-button class = "md-raised md-primary" @click.native="addData()">Add</md-button>
+                            <md-button class="md-raised md-primary" @click.native="addData()">Add</md-button>
                         </md-list-item>
                     </md-list>
                 </md-whiteframe>
@@ -27,16 +27,7 @@
 <script>
 export default {
     mounted() {
-        this.$auth.state({
-            forward: '/app',
-            redirect: '/login',
-            then: (user) => {
-                this.userEmail = this.$auth.user().email
-            },
-            catch: () => {
-                this.$destroy()
-            }
-        })
+        this.userEmail = this.$auth.user().email
         this.$store.state.messaging.getToken()
             .then((token) => {
                 this.token = token
@@ -75,12 +66,12 @@ export default {
 </script>
 
 <style scoped>
-
 .delete-data {
     cursor: pointer;
     color: red;
 }
-.data-container{
+
+.data-container {
     width: 700px;
 }
 </style>
