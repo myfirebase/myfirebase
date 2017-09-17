@@ -11,9 +11,12 @@ import Vue from 'vue'
 import router from './router'
 import store from './../storage/store'
 import VueFire from 'vuefire'
-import Myfirebase from 'myfirebase'
+// Developement mode
+import Myfirebase from './../framework/dist/myfirebase'
 import VueMaterial from 'vue-material';
-import Test from '@/components/auth/Login';
+
+// middlewares
+import middlewares from './middleware/index'
 
 Vue.config.productionTip = false
 
@@ -44,8 +47,10 @@ Vue.material.registerTheme('login', {
 // Init Myfirebase
 Vue.use(Myfirebase, {
     store: store,
-    router: router
+    router: router,
+    middlewares: middlewares
 });
+
 
 // Init Vue app
 const app = new Vue({
