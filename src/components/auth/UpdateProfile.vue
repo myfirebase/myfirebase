@@ -9,7 +9,6 @@
                                 <div class="md-title">Update Profile</div>
                                 <div class="md-subhead">{{userEmail}}</div>
                             </md-card-header-text>
-    
                             <md-card-media>
                                 <img :src="profilePicture" alt="Profile">
                             </md-card-media>
@@ -51,17 +50,10 @@
 <script>
 export default {
     mounted() {
-        this.$auth.state({
-            forward: '/update-profile',
-            rederict: '/login',
-            then: (user) => {
-                this.userEmail = this.$auth.user().email
-                this.userName = user.displayName
-                this.profilePicture = this.$auth.user().photoURL
-                this.ready = false
-            },
-            catch: () => { }
-        })
+        this.userEmail = this.$auth.user().email
+        this.userName = this.$auth.user().displayName
+        this.profilePicture = this.$auth.user().photoURL
+        this.ready = false
     },
     data() {
         return {
