@@ -16,6 +16,7 @@
                                 <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
                             </md-input-container>
                             <md-button class="md-raised md-primary" @click.native="addData()">Add</md-button>
+                            <router-link to="/admin">Admin</router-link>
                         </md-list-item>
                     </md-list>
                 </md-whiteframe>
@@ -27,7 +28,14 @@
 <script>
 export default {
     mounted() {
-        this.userEmail = this.$auth.user().email
+        this.$auth.check({
+            then(user){
+                console.log(user.email)
+            },
+            catch(user){
+
+            }
+        })
         this.$store.state.messaging.getToken()
             .then((token) => {
                 this.token = token
@@ -51,7 +59,6 @@ export default {
             this.$firebaseRefs.data.onDisconnect().cancel()
             this.$firebaseRefs.data.push({
                 data: this.newData,
-                email: this.$auth.user().email,
                 name: this.$auth.user().displayName,
                 token: this.token
             });
