@@ -3,20 +3,19 @@
  * 
  * @see /src/assets/app.scss
  */
-require('./assets/sass/app.scss')
+require('@/assets/sass/app.scss')
 
 //The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import router from './router'
+import router from '@/router'
 import store from './../storage/store'
 import VueFire from 'vuefire'
-// Developement mode
-import Myfirebase from './../framework/dist/myfirebase'
+import Myfirebase from 'myfirebase'
 import VueMaterial from 'vue-material';
 
-// middlewares
-import middlewares from './middleware/index'
+// Middlewares
+import middlewares from '@/middlewares/index'
 
 Vue.config.productionTip = false
 
@@ -51,8 +50,6 @@ Vue.use(Myfirebase, {
     middlewares: middlewares
 });
 
-
-// Init Vue app
 const app = new Vue({
     router,
     store,
