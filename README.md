@@ -12,7 +12,7 @@
 
 <p align="center">Myfirebase is a decoupled SPAs framework which is highly compatible with Google Firebase</p>
 
-> Currently Myfirebase is in development stage, Thank you for your testing.
+> Currently, Myfirebase is in development stage, Thank you for your testing.
 
 ## Docs
 
