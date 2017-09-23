@@ -55,9 +55,7 @@
 <script>
 export default {
 	mounted() {
-		this.$auth.state({
-			forward: '',
-			redirect: '',
+		this.$auth.check({
 			then: (user) => {
 				this.signed = true
 				this.userName = user.displayName
