@@ -50,10 +50,17 @@
 <script>
 export default {
     mounted() {
-        this.userEmail = this.$auth.user().email
-        this.userName = this.$auth.user().displayName
-        this.profilePicture = this.$auth.user().photoURL
-        this.ready = false
+        this.$auth.check({
+            then: (user) => {
+                this.userEmail = user.email
+                this.userName = user.displayName
+                this.profilePicture = user.photoURL
+                this.ready = false
+            },
+            ctach: (error)=> {
+                console.log(error.message)
+            }
+        })
     },
     data() {
         return {
