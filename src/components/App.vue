@@ -16,7 +16,6 @@
                                 <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
                             </md-input-container>
                             <md-button class="md-raised md-primary" @click.native="addData()">Add</md-button>
-                            <router-link to="/admin">Admin</router-link>
                         </md-list-item>
                     </md-list>
                 </md-whiteframe>
