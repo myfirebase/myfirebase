@@ -1,6 +1,6 @@
 /**
  * Here where you can register your middlewares
- * you can simply do that by adding them to the middlrwares array.
+ * you can simply do that by adding them to the middlewares array.
  */
 
 // import AuthMiddleware.
