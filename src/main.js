@@ -62,7 +62,8 @@ const app = new Vue({
          * @see /public/firebase-messaging-sw.js
          * You are free to change them however you like.
          */
-        if ('serviceWorker' in navigator) {
+        let env = process.env.NODE_ENV;
+        if ('serviceWorker' in navigator && env == 'production') {
             navigator.serviceWorker.register('/service-worker.js')
             navigator.serviceWorker.register('/firebase-messaging-sw.js')
             this.$store.state.messaging
