@@ -6,6 +6,8 @@ import UpdateProfile from '@/components/auth/UpdateProfile'
 import App from '@/components/App'
 import NotFound from '@/components/errors/404'
 
+import Vue from 'vue'
+
 const routes = [{
         path: '/',
         component: Landing,
