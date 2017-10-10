@@ -38,7 +38,7 @@
 
 ```shell
 # Create new project with myfirebase-cli
-$ myfirebase my-project
+$ myfirebase new:project my-project
 
 # Change directory
 $ cd my-project
