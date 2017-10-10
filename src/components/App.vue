@@ -29,16 +29,20 @@ export default {
     mounted() {
         this.$auth.check({
             then(user){
-                console.log(user.email)
+                this.userEmail = user.email
             },
-            catch(user){
+            catch(error){
 
             }
         })
+        // retrieve messaging token.
+        // only for production, you have to register messaging serviceworker.
+        /*
         this.$store.state.messaging.getToken()
             .then((token) => {
                 this.token = token
             })
+        */
     },
     firebase() {
         return {
@@ -50,7 +54,8 @@ export default {
             message: "welcome",
             newData: '',
             error: '',
-            token: ''
+            token: '',
+            userEmail: ''
         }
     },
     methods: {
@@ -58,7 +63,7 @@ export default {
             this.$firebaseRefs.data.onDisconnect().cancel()
             this.$firebaseRefs.data.push({
                 data: this.newData,
-                name: this.$auth.user().displayName,
+                name: this.userEmail,
                 token: this.token
             });
             this.newData = ''
