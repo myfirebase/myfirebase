@@ -9,13 +9,16 @@
                             <span>
                                 {{snapshot.data}}
                             </span>
+                            <md-button @click.native="deleteData(snapshot['.key'])" class="md-icon-button md-list-action">
+                                <md-icon class="md-accent">delete</md-icon>
+                            </md-button>
                         </md-list-item>
                         <md-list-item>
                             <md-input-container>
                                 <label>Write</label>
                                 <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
                             </md-input-container>
-                            <md-button class="md-raised md-primary" @click.native="addData()">Add</md-button>
+                            <md-button class="md-icon-button md-list-action" @click.native="addData()"><md-icon class="md-primary">send</md-icon></md-button>
                         </md-list-item>
                     </md-list>
                 </md-whiteframe>
@@ -28,10 +31,10 @@
 export default {
     mounted() {
         this.$auth.check({
-            then(user){
+            then(user) {
                 this.userEmail = user.email
             },
-            catch(error){
+            catch(error) {
 
             }
         })
@@ -68,10 +71,9 @@ export default {
             });
             this.newData = ''
         },
-        logout() {
-            this.$auth.logout();
-            this.$destroy();
-        },
+        deleteData(key){
+            this.$firebaseRefs.data.child(key).remove()
+        }
     }
 }
 </script>
