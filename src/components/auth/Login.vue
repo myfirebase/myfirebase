@@ -25,28 +25,27 @@
                     </md-card-actions>
                 </md-layout>
             </md-layout>
-            <md-layout md-gutter md-column>
-                <md-layout md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
-                    <md-button @click.native="signInGoogle()" class="md-raised md-accent">
-                        google
+            <div class="push-down"></div>
+            <md-layout md-align="center" md-guter>
+                <md-theme md-name="default" md-layout md-flex-xsmall="100" md-flex-medium="100">
+                    <md-button @click.native="signInGoogle()" class="md-raised">    
+                        <img class="icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"> google
                     </md-button>
-                </md-layout>
-                <md-theme md-name="login">
-                    <md-layout md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
-                        <md-button @click.native="signInFacebook()" class="md-raised md-primary">
-                            facebook
-                        </md-button>
-                    </md-layout>
-                    <md-layout md-theme="login" md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
-                        <md-button @click.native="signInTwitter()" class="md-raised md-accent">
-                            twitter
-                        </md-button>
-                    </md-layout>
-                    <md-layout md-theme="login" md-flex-xsmall="100" md-flex-small="100" md-flex-medium="100" md-align="center">
-                        <md-button @click.native="signInGithub()" class="md-raised md-warn">
-                            github
-                        </md-button>
-                    </md-layout>
+                </md-theme>
+                <md-theme md-name="login" md-layout md-flex-xsmall="100">
+                    <md-button @click.native="signInFacebook()" class="md-raised md-primary">
+                        <img class="icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/facebook.svg"> facebook
+                    </md-button>
+                </md-theme>
+                <md-theme md-name="login" md-layout md-flex-xsmall="100">
+                    <md-button @click.native="signInTwitter()" class="md-raised md-accent">
+                        <img class="icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg"> twitter
+                    </md-button>
+                </md-theme>
+                <md-theme md-name="login" md-layout md-flex-xsmall="100">
+                    <md-button @click.native="signInGithub()" class="md-raised md-warn">
+                        <img class="icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg"> github
+                    </md-button>
                 </md-theme>
             </md-layout>
         </div>
@@ -175,5 +174,13 @@ export default {
 
 
 <style scoped>
+.push-down {
+    margin-top: 15px;
+}
 
+.icon {
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+}
 </style>
