@@ -5,6 +5,7 @@ import Login from '@/components/auth/Login'
 import UpdateProfile from '@/components/auth/UpdateProfile'
 import App from '@/components/App'
 import NotFound from '@/components/errors/404'
+import Firestore from '@/components/Firestore'
 
 import Vue from 'vue'
 
@@ -32,7 +33,15 @@ const routes = [{
             {
                 path: '/app',
                 component: App,
-                name: 'Main app',
+                name: 'Realtime Database',
+                meta: {
+                    auth: true
+                }
+            },
+            {
+                path: '/firestore',
+                component: Firestore,
+                name: 'Cloud Firestore',
                 meta: {
                     auth: true
                 }
