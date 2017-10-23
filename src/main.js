@@ -12,7 +12,8 @@ import router from '@/router'
 import store from './../storage/store'
 import VueFire from 'vuefire'
 import Myfirebase from 'myfirebase'
-import VueMaterial from 'vue-material';
+import VueMaterial from 'vue-material'
+import Firestore from 'vue-firestore'
 
 // Middlewares
 import middlewares from '@/middlewares/index'
@@ -21,6 +22,7 @@ Vue.config.productionTip = false
 
 // Init VueFire (Firebase real time database)
 Vue.use(VueFire)
+Vue.use(Firestore)
 
 // init VueMaterial
 Vue.use(VueMaterial)
