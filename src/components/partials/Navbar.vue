@@ -31,10 +31,15 @@
 				<md-list-item class="md-primary">
 					<router-link @click.native="$refs.leftSidenav.toggle()" to="/app">
 						<md-icon>dashboard</md-icon>
-						<span>App</span>
+						<span>Realtime database</span>
 					</router-link>
 				</md-list-item>
-	
+				<md-list-item class="md-primary">
+					<router-link @click.native="$refs.leftSidenav.toggle()" to="/firestore">
+						<md-icon>dashboard</md-icon>
+						<span>Cloud firestore</span>
+					</router-link>
+				</md-list-item>
 				<md-list-item class="md-primary">
 					<router-link @click.native="$refs.leftSidenav.toggle()" to="/update-profile">
 						<md-icon>person</md-icon>
