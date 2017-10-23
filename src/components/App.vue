@@ -1,6 +1,10 @@
 <template>
     <div class="container">
         <md-layout md-gutter>
+            <div class="push-down"></div>
+            <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
+                <span class="md-display-2">Realtime Database Example</span>
+            </md-layout>
             <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
                 <md-whiteframe class="data-container">
                     <md-list>
@@ -18,7 +22,9 @@
                                 <label>Write</label>
                                 <md-input v-model="newData" v-on:keyup.enter.native="addData()" placeholder="Write something..."></md-input>
                             </md-input-container>
-                            <md-button class="md-icon-button md-list-action" @click.native="addData()"><md-icon class="md-primary">send</md-icon></md-button>
+                            <md-button class="md-icon-button md-list-action" @click.native="addData()">
+                                <md-icon class="md-primary">send</md-icon>
+                            </md-button>
                         </md-list-item>
                     </md-list>
                 </md-whiteframe>
@@ -33,6 +39,7 @@ export default {
         this.$auth.check({
             then(user) {
                 this.userEmail = user.email
+                console.log(this._firebaseSources)
             },
             catch(error) {
 
@@ -71,7 +78,7 @@ export default {
             });
             this.newData = ''
         },
-        deleteData(key){
+        deleteData(key) {
             this.$firebaseRefs.data.child(key).remove()
         }
     }
