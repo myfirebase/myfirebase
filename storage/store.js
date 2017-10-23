@@ -3,15 +3,17 @@ import Vuex from 'vuex';
 import { firebase } from './../src/firebase/firebase'
 import auth from './../storage/modules/myfirebase-auth/auth'
 import storage from './../storage/modules/myfirebase-storage/storage'
+require('firebase/firestore')
 
 Vue.use(Vuex);
 
 // FCM, Firebase cloud messaging
 const fcm = firebase.messaging();
-
-// defin database
+// Cloud FireStore
+const firestore = firebase.firestore();
+// Defin database
 const database = firebase.database();
-// ref to messages JSON
+// Ref to messages JSON
 const messages = database.ref().child('messages');
 // Error
 const error = ''
@@ -25,8 +27,10 @@ export default new Vuex.Store({
     // states
     state: {
         database: database.ref(),
+        firestore: firestore,
         error: error,
-        messaging: fcm
+        messaging: fcm,
+        firebase: firebase
     },
     // mutations
     mutations: {},
