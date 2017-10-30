@@ -1,7 +1,7 @@
 /**
  * AuthMiddleware, you can get access
  * to myfirebase functionalities and vue auth guard via actions.
- * myfirebase => [auth, storage, store]
+ * myfirebase => [auth, storage, database]
  * actions => [to, from, next()]
  * 
  * @param {object} myfirebase 
@@ -10,7 +10,7 @@
 const AuthMiddleware = (myfirebase, actions) => {
     if (actions.to.matched.some(record => record.meta.auth)) {
         myfirebase.auth.check({
-            then: () => {
+            then: (user) => {
                 actions.next()
             },
             catch: () => {
