@@ -39,7 +39,6 @@ export default {
         this.$auth.check({
             then(user) {
                 this.userEmail = user.email
-                console.log(this._firebaseSources)
             },
             catch(error) {
 
