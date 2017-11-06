@@ -36,11 +36,11 @@
 <script>
 export default {
     mounted() {
-        console.log("component is ready!!")
+        console.log(this.$auth.user().photoURL)
     },
     firestore() {
         return {
-            Persons: this.$store.state.firestore.collection('Persons')
+            Persons: this.$store.state.firestore.collection(this.$auth.user().uid)
         }
     },
     data() {
