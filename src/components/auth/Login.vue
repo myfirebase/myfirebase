@@ -28,7 +28,7 @@
             <div class="push-down"></div>
             <md-layout md-align="center" md-guter>
                 <md-theme md-name="default" md-layout md-flex-xsmall="100" md-flex-medium="100">
-                    <md-button @click.native="signInGoogle()" class="md-raised">    
+                    <md-button @click.native="signInGoogle()" class="md-raised">
                         <img class="icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"> google
                     </md-button>
                 </md-theme>
@@ -79,7 +79,6 @@ export default {
         return {
             email: '',
             password: '',
-            loginState: false,
             error: '',
             ready: false
         }
@@ -88,7 +87,6 @@ export default {
     methods: {
         login() {
             this.ready = false
-            this.loginState = true
             this.$auth.loginWithEmailAndPassowrd({
                 email: this.email,
                 password: this.password,
@@ -104,67 +102,85 @@ export default {
             this.middleware()
         },
         register() {
-            this.loginState = true;
+            this.ready = false
             this.$auth.registerWithEmailAndPassword({
                 email: this.email,
                 password: this.password,
                 result: (user) => {
+                    this.ready = true;
                     //console.log("User Email : " + user.email)
                 },
                 error: (error) => {
                     this.error = error.message
+                    this.ready = false;
+                    this.$refs.snackbar.open()
                 }
             });
         },
         middleware() {
             this.password = ''
-            this.loginState = false
         },
         signInGoogle() {
+            this.ready = false
             this.$auth.signInWithGoogle({
                 result: (result) => {
                     // This gives you a Google Access Token. You can use it to access the Google API.
                     // console.log("Token : " + result.credential.accessToken)
                     // The signed-in user info.
                     //console.log("User Email : " + result.user.email)
+                    this.ready = true
                 },
                 error: (error) => {
                     // Error
                     this.error = error.message
+                    this.ready = false;
+                    this.$refs.snackbar.open()
                 }
             })
         },
         signInFacebook() {
+            this.ready = false
             this.$auth.signInWithFacebook({
                 result: (result) => {
                     //console.log("Token : " + result.credential.accessToken)
                     //console.log("User Email : " + result.user.email)
+                    this.ready = true
                 },
                 error: (error) => {
                     this.error = error.message
+                    this.ready = false;
+                    this.$refs.snackbar.open()
                 }
             })
         },
         signInTwitter() {
+            this.ready = false
             this.$auth.signInWithTwitter({
                 result: (result) => {
                     //console.log("Token : " + result.credential.accessToken)
                     //console.log("User Email : " + result.user.email)
                     //console.log(result.user)
+                    this.ready = true
                 },
                 error: (error) => {
                     this.error = error.message
+                    this.ready = false;
+                    this.$refs.snackbar.open()
                 }
             })
         },
         signInGithub() {
+            this.ready = false
             this.$auth.signInWithGithub({
                 result: (result) => {
                     //console.log("Token : " + result.credential.accessToken)
                     //console.log("User Email : " + result.user.email)
+                    this.true = true
                 },
                 error: (error) => {
                     this.error = error.message
+                    this.ready = false;
+                    this.$refs.snackbar.open()
                 }
             })
         }
