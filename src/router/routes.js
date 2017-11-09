@@ -10,49 +10,44 @@ import Firestore from '@/components/Firestore'
 import Vue from 'vue'
 
 const routes = [{
-        path: '/',
-        component: Landing,
-        children: [{
-                path: '/',
-                component: Welcome,
-                name: 'Welcome'
-            },
-            {
-                path: '/login',
-                component: Login,
-                name: 'login'
-            },
-            {
-                path: '/update-profile',
-                component: UpdateProfile,
-                name: 'Profile Update',
-                meta: {
-                    auth: true
-                }
-            },
-            {
-                path: '/app',
-                component: App,
-                name: 'Realtime Database',
-                meta: {
-                    auth: true
-                }
-            },
-            {
-                path: '/firestore',
-                component: Firestore,
-                name: 'Cloud Firestore',
-                meta: {
-                    auth: true
-                }
+    path: '/',
+    component: Landing,
+    children: [{
+            path: '/',
+            component: Welcome,
+            name: 'Welcome'
+        },
+        {
+            path: '/login',
+            component: Login,
+            name: 'login'
+        },
+        {
+            path: '/update-profile',
+            component: UpdateProfile,
+            name: 'Profile Update',
+            meta: {
+                auth: true
             }
-        ]
-    },
-    {
-        path: '*',
-        components: NotFound
-    }
-]
+        },
+        {
+            path: '/app',
+            component: App,
+            name: 'Realtime Database',
+            meta: {
+                auth: true
+            }
+        },
+        {
+            path: '/firestore',
+            component: Firestore,
+            name: 'Cloud Firestore',
+            meta: {
+                auth: true
+            }
+        }
+    ]
+}]
 
 
 export default routes;
