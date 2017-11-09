@@ -91,6 +91,15 @@ export default {
             }).catch(error => {
                 image.error(error)
             })
+        },
+        stateChanged(state, callBack) {
+            state.auth.onAuthStateChanged((user) => {
+                if (user) {
+                    callBack.then(user)
+                } else {
+                    callBack.catch()
+                }
+            })
         }
     },
     getters: {},
