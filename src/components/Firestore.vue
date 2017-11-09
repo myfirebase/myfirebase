@@ -36,23 +36,31 @@
 <script>
 export default {
     mounted() {
-        console.log(this.$auth.user().photoURL)
+        this.$auth.check({
+            then: (user) => {
+                this.userID = user.uid
+            },
+            catch: () => {
+                console.log("Auth Error")
+            }
+        })
     },
     firestore() {
         return {
-            Persons: this.$store.state.firestore.collection(this.$auth.user().uid)
+            Persons: this.$store.state.firestore.collection("Persons")
         }
     },
     data() {
         return {
-            username: ""
+            username: "",
+            userID: ""
         }
     },
     methods: {
         add() {
             this.$firestore.Persons.add({
                 name: this.username,
-                timestamp: this.$store.state.firebase.firestore.FieldValue.serverTimestamp()
+                createdBy: this.userID
             }).then((success) => {
             }).catch(error => {
                 console.log(error.message)
