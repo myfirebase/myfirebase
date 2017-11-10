@@ -45,6 +45,10 @@ const routes = [{
             meta: {
                 auth: true
             }
+        },
+        {
+            path: '*',
+            components: NotFound
         }
     ]
 }]
