@@ -15,10 +15,9 @@
 						<md-avatar class="md-large">
 							<img :src="userPhoto" alt="user-avatar">
 						</md-avatar>
-	
 						<span style="flex: 1"></span>
 					</md-list-item>
-	
+
 					<md-list-item>
 						<div class="md-list-text-container">
 							<span>{{userName}}</span>
