@@ -1,5 +1,5 @@
 // Routes
-import Landing from '@/components/Landing'
+import Layout from '@/components/Layout'
 import Welcome from '@/components/Welcome'
 import Login from '@/components/auth/Login'
 import UpdateProfile from '@/components/auth/UpdateProfile'
@@ -11,7 +11,7 @@ import Vue from 'vue'
 
 const routes = [{
     path: '/',
-    component: Landing,
+    component: Layout,
     children: [{
             path: '/',
             component: Welcome,
