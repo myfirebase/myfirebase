@@ -28,7 +28,7 @@
         "sw-precache-webpack-plugin": "^0.11.4",
         "vue": "^2.2.2",
         "vue-firestore": "^0.1.0",
-        "vue-material": "^0.7.4",
+        "vue-material": "^0.8.1",
         "vue-router": "^2.3.0",
         "vuefire": "^1.4.2",
         "vuex": "^2.0.0"
