@@ -33,6 +33,13 @@ export default {
             }).catch(error => {
                 file.error(error)
             })
+        },
+        uploadFiles(state, files) {
+            for (var key in e.target.files) {
+                if (e.target.files.hasOwnProperty(key)) {
+                    // Todo: upload multiple files
+                }
+            }
         }
     },
     actions: {},
