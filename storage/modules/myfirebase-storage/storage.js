@@ -35,8 +35,8 @@ export default {
             })
         },
         uploadFiles(state, files) {
-            for (var key in e.target.files) {
-                if (e.target.files.hasOwnProperty(key)) {
+            for (var key in files) {
+                if (files.hasOwnProperty(key)) {
                     // Todo: upload multiple files
                 }
             }
