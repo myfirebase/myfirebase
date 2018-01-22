@@ -37,7 +37,11 @@ export default {
         uploadFiles(state, files) {
             for (var key in files) {
                 if (files.hasOwnProperty(key)) {
-                    // Todo: upload multiple files
+                    let task = state.storage.ref().child(file.ref).put(file[key])
+                    task.on('state_changed',
+                        function progress(snapshot) {},
+                        function error(err) {},
+                        function completed() {});
                 }
             }
         }
