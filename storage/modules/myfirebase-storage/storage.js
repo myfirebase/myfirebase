@@ -35,13 +35,17 @@ export default {
             })
         },
         uploadFiles(state, files) {
-            for (var key in files) {
-                if (files.hasOwnProperty(key)) {
-                    let task = state.storage.ref().child(file.ref).put(file[key])
+            for (var key in files.files) {
+                if (files.files.hasOwnProperty(key)) {
+                    let task = state.storage.ref().child(`${files.ref}/${files.files[key].name}`).put(files.files[key])
                     task.on('state_changed',
                         function progress(snapshot) {},
-                        function error(err) {},
-                        function completed() {});
+                        function error(err) {
+                            console.error(err.message)
+                        },
+                        function completed() {
+                            console.log("completed")
+                        });
                 }
             }
         }
