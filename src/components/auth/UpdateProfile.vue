@@ -150,12 +150,10 @@ export default {
     max-width: 200px;
     min-width: 150px;
 }
-
 .profile-card {
     margin-top: 20px;
     width: 50%;
 }
-
 .hidden {
     opacity: 0;
     width: 0;
