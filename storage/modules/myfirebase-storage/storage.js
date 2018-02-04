@@ -39,12 +39,14 @@ export default {
                 if (files.files.hasOwnProperty(key)) {
                     let task = state.storage.ref().child(`${files.ref}/${files.files[key].name}`).put(files.files[key])
                     task.on('state_changed',
-                        function progress(snapshot) {},
+                        function progress(snapshot) {
+                            files.progress(snapshot)
+                        },
                         function error(err) {
-                            console.error(err.message)
+                            files.error(err)
                         },
                         function completed() {
-                            console.log("completed")
+                            files.completed()
                         });
                 }
             }
