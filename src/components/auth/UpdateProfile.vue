@@ -7,20 +7,20 @@
                         <md-card-header>
                             <md-card-header-text>
                                 <div class="md-title">Update Profile</div>
-                                <div class="md-subhead">{{userEmail}}</div>
+                                <div class="md-subhead">{{Profile.email}}</div>
                             </md-card-header-text>
                             <md-card-media>
-                                <img :src="profilePicture" alt="Profile">
+                                <img :src="Profile.photoURL" alt="Profile">
                             </md-card-media>
                         </md-card-header>
                         <md-card-content>
                             <md-input-container>
                                 <label>Email</label>
-                                <md-input v-model="userEmail"></md-input>
+                                <md-input v-model="Profile.email"></md-input>
                             </md-input-container>
                             <md-input-container>
                                 <label>Username</label>
-                                <md-input v-model="userName"></md-input>
+                                <md-input v-model="Profile.displayName"></md-input>
                             </md-input-container>
                             <md-input-container>
                                 <label>Update Avatar</label>
@@ -48,13 +48,16 @@
 </template>
 
 <script>
+
+import Profile from "./../../models/Profile"
+
 export default {
     mounted() {
         this.$auth.check({
             then: (user) => {
-                this.userEmail = user.email
-                this.userName = user.displayName
-                this.profilePicture = user.photoURL
+                this.Profile.setPhotoURL(user.photoURL)
+                .setDisplayName(user.displayName)
+                .setEmail(user.email)
                 this.ready = false
             },
             ctach: (error) => {
@@ -65,12 +68,10 @@ export default {
     data() {
         return {
             message: "",
-            userEmail: '',
-            profilePicture: '',
-            userName: '',
             newPhoto: null,
             error: '',
             ready: true,
+            Profile: new Profile()
         }
     },
     computed: {},
@@ -116,14 +117,14 @@ export default {
         updateProfile() {
             this.ready = true
             this.$auth.user().updateProfile({
-                displayName: this.userName,
-                email: this.userEmail
+                displayName: this.Profile.displayName,
+                email: this.Profile.email
             }).then(() => {
                 this.$store.state.database.child("data").once("value").then(snapshot => {
                     snapshot.forEach(childSnapshot => {
                         if (childSnapshot.child("email").val() == this.$auth.user().email) {
                             this.$store.state.database.child("data").child(childSnapshot.key).update({
-                                name: this.userName
+                                name: this.Profile.displayName
                             })
                         }
                     })
@@ -138,7 +139,7 @@ export default {
             })
         },
         synchronize() {
-            this.profilePicture = this.$auth.user().photoURL
+            this.Profile.setPhotoURL(this.$auth.user().photoURL)
         }
     }
 }
