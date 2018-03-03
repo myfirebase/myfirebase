@@ -5,7 +5,7 @@
             <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
                 <span class="md-display-2">Realtime Database Example</span>
             </md-layout>
-            <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
+                <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
                 <md-whiteframe class="data-container">
                     <md-list>
                         <md-subheader>Data Example</md-subheader>
@@ -35,62 +35,60 @@
 
 <script>
 export default {
-    mounted() {
-        this.$auth.check({
-            then(user) {
-                this.userEmail = user.email
-            },
-            catch(error) {
-
-            }
-        })
-        // retrieve messaging token.
-        // only for production, you have to register messaging serviceworker.
-        /*
+  mounted() {
+    this.$auth.check({
+      then(user) {
+        this.userEmail = user.email;
+      },
+      catch(error) {}
+    });
+    // retrieve messaging token.
+    // only for production, you have to register messaging serviceworker.
+    /*
         this.$store.state.messaging.getToken()
             .then((token) => {
                 this.token = token
             })
         */
+  },
+  firebase() {
+    return {
+      data: this.$store.state.database.child("data")
+    };
+  },
+  data() {
+    return {
+      message: "welcome",
+      newData: "",
+      error: "",
+      token: "",
+      userEmail: ""
+    };
+  },
+  methods: {
+    addData() {
+      this.$firebaseRefs.data.onDisconnect().cancel();
+      this.$firebaseRefs.data.push({
+        data: this.newData,
+        name: this.userEmail,
+        token: this.token
+      });
+      this.newData = "";
     },
-    firebase() {
-        return {
-            data: this.$store.state.database.child('data'),
-        }
-    },
-    data() {
-        return {
-            message: "welcome",
-            newData: '',
-            error: '',
-            token: '',
-            userEmail: ''
-        }
-    },
-    methods: {
-        addData() {
-            this.$firebaseRefs.data.onDisconnect().cancel()
-            this.$firebaseRefs.data.push({
-                data: this.newData,
-                name: this.userEmail,
-                token: this.token
-            });
-            this.newData = ''
-        },
-        deleteData(key) {
-            this.$firebaseRefs.data.child(key).remove()
-        }
+    deleteData(key) {
+      this.$firebaseRefs.data.child(key).remove();
     }
-}
+  }
+};
 </script>
 
 <style scoped>
 .delete-data {
-    cursor: pointer;
-    color: red;
+  cursor: pointer;
+  color: red;
 }
 
 .data-container {
-    width: 700px;
+  width: 700px;
 }
 </style>
