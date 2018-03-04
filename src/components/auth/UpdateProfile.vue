@@ -116,11 +116,10 @@ export default {
         },
         updateProfile() {
             this.ready = true
-            this.$auth.user().updateProfile({
-                displayName: this.Profile.displayName,
-                email: this.Profile.email
-            }).then(() => {
-                this.$store.state.database.child("data").once("value").then(snapshot => {
+            this.$auth.user().updateProfile(this.Profile.toJson()).then(() => {
+            
+            // Multipath Update
+            this.$store.state.database.child("data").once("value").then(snapshot => {
                     snapshot.forEach(childSnapshot => {
                         if (childSnapshot.child("email").val() == this.$auth.user().email) {
                             this.$store.state.database.child("data").child(childSnapshot.key).update({
