@@ -1,4 +1,4 @@
-import { FirestoreModel } from './../../framework/dist/myfirebase'
+import { FirestoreModel } from 'myfirebase'
 
 class Person extends FirestoreModel {
     constructor(ref) {
