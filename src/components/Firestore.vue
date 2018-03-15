@@ -19,8 +19,8 @@
                         </md-list-item>
                         <md-list-item>
                             <md-input-container>
-                                <label>Write</label>
-                                <md-input v-model="username" v-on:keyup.enter.native="add()" placeholder="Write something..."></md-input>
+                                <label>Add Person</label>
+                                <md-input v-model="Person.name" v-on:keyup.enter.native="add()" placeholder="Add Person"></md-input>
                             </md-input-container>
                             <md-button class="md-icon-button md-list-action" @click.native="add()">
                                 <md-icon class="md-primary">send</md-icon>
@@ -34,6 +34,9 @@
 </template>
 
 <script>
+
+import Person from "./../models/Person"
+
 export default {
     mounted() {
         this.$auth.check({
@@ -53,22 +56,20 @@ export default {
     data() {
         return {
             username: "",
-            userID: ""
+            userID: "",
+            Person: new Person(this.$store.state.firestore.collection('Persons')).init()
         }
     },
     methods: {
         add() {
-            this.$firestore.Persons.add({
-                name: this.username,
-                createdBy: this.userID
-            }).then((success) => {
+            this.Person.add().then((success) => {
+                this.Person.name = ""
             }).catch(error => {
                 console.log(error.message)
             })
-            this.username = ""
         },
         remove(e) {
-            this.$firestore.Persons.doc(e['.key']).delete().then(() => {
+            this.Person.delete(e['.key']).then(() => {
                 console.log("Done")
             }).catch(error => {
                 console.log(error.message)
