@@ -3966,9 +3966,9 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-myfirebase@^0.1.4:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/myfirebase/-/myfirebase-0.1.8.tgz#e3f8d3136d882a6d887564298add7c02e1cd8303"
+myfirebase@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/myfirebase/-/myfirebase-0.2.1.tgz#718b3182ae62f74a6a79e3a2926329385f2810fc"
 
 nan@^2.3.0, nan@^2.3.2, nan@^2.8.0:
   version "2.8.0"
@@ -6075,9 +6075,9 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-vue-firestore@^0.1.0:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/vue-firestore/-/vue-firestore-0.1.4.tgz#68ee43d1852787ada7a130bdc166da2656a9f3b1"
+vue-firestore@^0.1.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/vue-firestore/-/vue-firestore-0.2.6.tgz#98069f4a2fd11fa7a1d3677ebf5246b2babad5ce"
 
 vue-hot-reload-api@^2.0.11:
   version "2.2.4"
