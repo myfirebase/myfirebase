@@ -1,4 +1,4 @@
-import { DatabaseModel } from './../../framework/dist/myfirebase'
+import { DatabaseModel } from 'myfirebase'
 
 class Item extends DatabaseModel {
     constructor(ref) {
