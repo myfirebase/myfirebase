@@ -41,10 +41,10 @@ export default {
     mounted() {
         this.$auth.check({
             then: (user) => {
-                this.userID = user.uid
+                // retrieve the logged-in user
             },
             catch: () => {
-                console.log("Auth Error")
+                // user is not logged in
             }
         })
     },
@@ -56,7 +56,6 @@ export default {
     data() {
         return {
             username: "",
-            userID: "",
             Person: new Person(this.$store.state.firestore.collection('Persons')).init()
         }
     },
