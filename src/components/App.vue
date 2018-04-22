@@ -41,12 +41,12 @@ export default {
   mounted() {
     this.$auth.check({
       then(user) {
-        this.userEmail = user.email;
       },
       catch(error) {}
     });
+
     // retrieve messaging token.
-    // only for production, you have to register serviceworker.
+    // only for production, you have to register the serviceworker.
     /*
         this.$store.state.messaging.getToken()
             .then((token) => {
@@ -61,9 +61,7 @@ export default {
   },
   data() {
     return {
-      error: "",
       token: "",
-      userEmail: "",
       Item: new Item(this.$store.state.database.child('data')).init()
     }
   },
