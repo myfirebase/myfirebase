@@ -22,8 +22,6 @@
 
 1. **NPM** is the recommended installation method when building large scale applications with **Myfirebase**.
 
-   If this is the first time you want to give **npm** a shot, don't worry, we got exactly what you need.
-
    - [How to Install Node.js and NPM on Windows](http://blog.teamtreehouse.com/install-node-js-npm-windows)
 
    - [How to Install Node.js and NPM on a Mac](http://blog.teamtreehouse.com/install-node-js-npm-mac)
