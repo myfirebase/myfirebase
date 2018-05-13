@@ -2,6 +2,7 @@
 node_modules/
 vue-firestore/
 dist/
+docs/
 framework/
 public/static/
 public/index.html
