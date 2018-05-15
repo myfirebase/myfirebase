@@ -7,7 +7,7 @@ class Item extends DatabaseModel {
      * 
      * @param {*} ref
      */
-    constructor(ref) {
+    constructor (ref) {
         super(ref)
     }
 
@@ -16,7 +16,7 @@ class Item extends DatabaseModel {
      * 
      * @return array
      */
-    required() {
+    required () {
         return []
     }
 }
