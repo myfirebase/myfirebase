@@ -3,7 +3,7 @@ export default class Profile {
     /** 
      * Create new Profile Instance. 
      */
-    constructor() {
+    constructor () {
         this.email = ""
         this.displayName = ""
         this.photoURL = ""
@@ -16,7 +16,7 @@ export default class Profile {
      * 
      * @return Profile 
      */
-    setEmail(email) {
+    setEmail (email) {
         this.email = email
         return this
     }
@@ -28,7 +28,7 @@ export default class Profile {
      * 
      * @return Profile
      */
-    setDisplayName(displayName) {
+    setDisplayName (displayName) {
         this.displayName = displayName
         return this
     }
@@ -40,7 +40,7 @@ export default class Profile {
      * 
      * @return Profile 
      */
-    setPhotoURL(photoURL) {
+    setPhotoURL (photoURL) {
         this.photoURL = photoURL 
         return this
     }
@@ -48,7 +48,7 @@ export default class Profile {
     /** 
      * Export to Json. 
      */
-    toJson() {
+    toJson () {
         return {
             email: this.email,
             displayName: this.displayName,
