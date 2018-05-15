@@ -7,7 +7,7 @@ class Person extends FirestoreModel {
      * 
      * @param {*} ref
      */
-    constructor(ref) {
+    constructor (ref) {
         super(ref)
     }
 
@@ -16,7 +16,7 @@ class Person extends FirestoreModel {
      * 
      * @return array
      */
-    required() {
+    required () {
         return []
     }
 }
