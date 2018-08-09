@@ -2,6 +2,7 @@
 import Layout from '@/components/Layout'
 import Welcome from '@/components/Welcome'
 import Login from '@/components/auth/Login'
+import Profile from '@/components/auth/UpdateProfile'
 import UpdateProfile from '@/components/auth/UpdateProfile'
 import App from '@/components/App'
 import NotFound from '@/components/errors/404'
@@ -31,7 +32,7 @@ const routes = [{
             }
         },
         {
-            path: '/app',
+            path: '/realtime-database',
             component: App,
             name: 'Realtime Database',
             meta: {
@@ -43,6 +44,14 @@ const routes = [{
             component: Firestore,
             name: 'Cloud Firestore',
             meta: {
+                auth: true
+            }
+        },
+        {
+            path: '/profile',
+            component: Profile,
+            name: 'Update Profile',
+            meta : {
                 auth: true
             }
         },
