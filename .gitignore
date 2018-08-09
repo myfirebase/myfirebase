@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 vue-firestore/
+myfirebase-cli/
+old/
 dist/
 docs/
 framework/
@@ -11,3 +13,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 tests/unit/coverage/
+.vscode/
