@@ -28,80 +28,38 @@ export default {
         twitterAuthProvider: twitterAuthProvider,
         githubAuthProvider: githubAuthProvider
     },
-    mutations: {
-        logout(state) {
-            state.auth.signOut();
+    mutations: {},
+    getters: {},
+    actions: {
+        login (context, user) {
+            return context.state.auth.signInWithEmailAndPassword(user.email, user.password)
         },
-        login(state, user) {
-            const promis = state.auth.signInWithEmailAndPassword(user.email, user.password)
-            promis.then((userResult) => {
-                user.result(userResult)
-            }).catch(error => {
-                state.error = error.message
-                user.error(error)
-            })
+        logout (context) {
+            return context.state.auth.signOut();
         },
-        signInGoogle(state, callBack) {
-            let provider = state.googleAuthProvider;
-            state.auth.signInWithPopup(provider).then((result) => {
-                callBack.result(result)
-            }).catch((error) => {
-                callBack.error(error)
-            });
+        register (context, user) {
+            return context.state.auth.createUserWithEmailAndPassword(user.email, user.password)
         },
-        signInFacebook(state, callBack) {
-            let provider = state.facebookAuthProvider;
-            state.auth.signInWithPopup(provider).then((result) => {
-                callBack.result(result);
-            }).catch((error) => {
-                callBack.error(error)
-            });
+        signInGoogle (context) {
+            let provider = context.state.googleAuthProvider;
+            return context.state.auth.signInWithPopup(provider)
         },
-        signInTwitter(state, callBack) {
-            let provider = state.twitterAuthProvider;
-            state.auth.signInWithPopup(provider).then((result) => {
-                callBack.result(result);
-            }).catch((error) => {
-                callBack.error(error)
-            });
+        signInFacebook (context) {
+            let provider = context.state.facebookAuthProvider;
+            return context.state.auth.signInWithPopup(provider)
         },
-        signInGithub(state, callBack) {
-            let provider = state.githubAuthProvider;
-            state.auth.signInWithPopup(provider).then((result) => {
-                callBack.result(result);
-            }).catch((error) => {
-                callBack.error(error)
-            });
+        signInTwitter (context) {
+            let provider = context.state.twitterAuthProvider;
+            return context.state.auth.signInWithPopup(provider)
         },
-        register(state, user) {
-            const promis = state.auth.createUserWithEmailAndPassword(user.email, user.password)
-            promis.then((userResult) => {
-                console.log("from Vuex : Done : " + user.email)
-                user.result(userResult)
-            }).catch(error => {
-                state.error = error.message
-                user.error(error)
-            })
+        signInGithub (context) {
+            let provider = context.state.githubAuthProvider;
+            return context.state.auth.signInWithPopup(provider)
         },
-        updateProfilePicture(state, image) {
-            state.auth.currentUser.updateProfile({
-                photoURL: image.ref
-            }).then(() => {
-                image.result()
-            }).catch(error => {
-                image.error(error)
-            })
-        },
-        stateChanged(state, callBack) {
-            state.auth.onAuthStateChanged((user) => {
-                if (user) {
-                    callBack.then(user)
-                } else {
-                    callBack.catch()
-                }
+        updateProfilePicture (context, image) {
+            return context.state.auth.currentUser.updateProfile({
+                photoURL: image
             })
         }
-    },
-    getters: {},
-    actions: {}
+    }
 }

@@ -13,7 +13,7 @@ export default {
         error: error
     },
     mutations: {
-        uploadFile(state, file) {
+        uploadFile (state, file) {
             let task = state.storage.ref().child(file.ref).put(file.file)
             task.on('state_changed',
                 function progress(snapshot) {
@@ -23,35 +23,33 @@ export default {
                     file.error(err)
                 },
                 function completed() {
-                    file.completed(task.snapshot.downloadURL)
+                    task.snapshot.ref.getDownloadURL().then(url => {
+                        file.completed(url)
+                    })
                 });
         },
-        deleteFile(state, file) {
-            let promis = state.storage.ref().child(file.ref).delete()
-            promis.then(() => {
-                file.result()
-            }).catch(error => {
-                file.error(error)
-            })
-        },
-        uploadFiles(state, files) {
+        uploadFiles (state, files) {
             for (var key in files.files) {
                 if (files.files.hasOwnProperty(key)) {
                     let task = state.storage.ref().child(`${files.ref}/${files.files[key].name}`).put(files.files[key])
                     task.on('state_changed',
-                        function progress(snapshot) {
-                            files.progress(snapshot)
-                        },
-                        function error(err) {
-                            files.error(err)
-                        },
-                        function completed() {
-                            files.completed()
-                        });
+                    function progress(snapshot) {
+                        files.progress(snapshot)
+                    },
+                    function error(err) {
+                        files.error(err)
+                    },
+                    function completed() {
+                        files.completed()
+                    });
                 }
             }
         }
     },
-    actions: {},
+    actions: {
+        deleteFile (context, file) {
+            return context.state.storage.ref().child(file).delete()
+        }
+    },
     getters: {}
 }
