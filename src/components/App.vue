@@ -1,77 +1,78 @@
 <template>
-    <div class="container">
-        <md-layout md-gutter>
-            <div class="push-down"></div>
-            <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
-                <span class="md-display-2">Realtime Database Example</span>
-            </md-layout>
-                <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
-                <md-whiteframe class="data-container">
-                    <md-list>
-                        <md-subheader>Data Example</md-subheader>
-                        <md-list-item v-for="item in data" :key="item['.key']">
-                            <span>
-                                {{item.name}}
-                            </span>
-                            <md-button @click.native="deleteItem(item['.key'])" class="md-icon-button md-list-action">
-                                <md-icon class="md-accent">delete</md-icon>
-                            </md-button>
-                        </md-list-item>
-                        <md-list-item>
-                            <md-input-container>
-                                <label>Add Item</label>
-                                <md-input v-model="Item.name" v-on:keyup.enter.native="addItem()" placeholder="Add Item..."></md-input>
-                            </md-input-container>
-                            <md-button class="md-icon-button md-list-action" @click.native="addItem()">
-                                <md-icon class="md-primary">send</md-icon>
-                            </md-button>
-                        </md-list-item>
-                    </md-list>
-                </md-whiteframe>
-            </md-layout>
-        </md-layout>
+  <div>
+    <v-card>
+      <v-list two-line subheader>
+        <v-subheader>Items</v-subheader>
+        <v-list-tile v-for="(item, index) in data" :key="index">
+          <v-list-tile-content>
+            <v-list-tile-title>{{item.name}}</v-list-tile-title>
+          </v-list-tile-content>
+          <v-list-tile-action>
+            <v-icon color="black" @click="deleteItem(item['.key'])">delete</v-icon>
+          </v-list-tile-action>
+        </v-list-tile>
+      </v-list>
+      <v-container>
+      <v-text-field
+      label="Item Name"
+      v-model="Item.name"
+      @keyup.enter="addItem()"
+      ></v-text-field>
+      <v-btn @click="addItem()">Add Item</v-btn>
+      </v-container>
+    </v-card>
+    <div class="overlay" v-if="!ready">
+      <div class="flex-spinner">
+        <v-progress-circular :size="200" :width="7" indeterminate color="amber"></v-progress-circular>
+      </div> 
     </div>
+  </div>
 </template>
 
 <script>
 
-import Item from "./../models/Item";
+import Item from "@/models/Item";
 
 export default {
-  mounted() {
-    this.$auth.check({
-      then(user) {
-      },
-      catch(error) {}
-    });
+  mounted () {
+    this.$auth.check()
+    .then(user => { })
+    .catch(err => {
+      console.log(err)
+    })
 
     // retrieve messaging token.
-    // only for production, you have to register the serviceworker.
-    /*
-        this.$store.state.messaging.getToken()
-            .then((token) => {
-                this.token = token
-            })
-        */
+    // only for production, you have to register the service-worker.
+
+    // this.$store.state.messaging.getToken()
+    //     .then((token) => {
+    //         this.token = token
+    //     })
   },
-  firebase() {
+  firebase () {
     return {
-      data: this.$store.state.database.child("data")
+      data: {
+        source: this.$store.state.database.child("item"),
+        readyCallback: () => {
+          this.ready = true
+        }
+      }
     };
   },
-  data() {
+  data () {
     return {
       token: "",
-      Item: new Item(this.$store.state.database.child('data')).init()
+      Item: new Item(this.$store.state.database.child('item')).init(),
+      ready: false
     }
   },
   methods: {
-    addItem() {
-      this.$firebaseRefs.data.onDisconnect().cancel();
-      this.Item.push();
+    addItem () {
+      this.$firebaseRefs.data.onDisconnect().cancel()
+      this.Item.push()
       this.Item.name = ""
     },
-    deleteItem(key) {
+    deleteItem (key) {
       this.Item.remove(key);
     }
   }
@@ -87,4 +88,5 @@ export default {
 .data-container {
   width: 700px;
 }
+
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="flex">
         <img src="./../assets/img/MyFireBase.svg" alt="MyfirebaseLogo">
-        <span class="md-display-2">Welcome to
-            <i>Myfirebase</i>
-        </span>
-        <router-link tag="md-button" to="/login" class="md-raised md-primary">Login</router-link>
+        
+        <p class="display-3 font-weight-thin">Welcome to
+            Myfirebase
+        </p>
     </div>
 </template>
 <script>

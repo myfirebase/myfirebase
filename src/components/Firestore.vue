@@ -1,75 +1,56 @@
 <template>
-    <div class="container">
-        <div class="push-down"></div>
-        <md-layout md-gutter>
-            <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
-                <span class="md-display-2">Cloud Firestore Example</span>
-            </md-layout>
-            <md-layout md-flex-large="100" md-flex-xsmall="100" md-align="center">
-                <md-whiteframe class="data-container">
-                    <md-list>
-                        <md-subheader>Data Example</md-subheader>
-                        <md-list-item v-for="snapshot in Persons" :key="snapshot['.key']">
-                            <span>
-                                {{snapshot.name}}
-                            </span>
-                            <md-button @click.native="remove(snapshot)" class="md-icon-button md-list-action">
-                                <md-icon class="md-accent">delete</md-icon>
-                            </md-button>
-                        </md-list-item>
-                        <md-list-item>
-                            <md-input-container>
-                                <label>Add Person</label>
-                                <md-input v-model="Person.name" v-on:keyup.enter.native="add()" placeholder="Add Person"></md-input>
-                            </md-input-container>
-                            <md-button class="md-icon-button md-list-action" @click.native="add()">
-                                <md-icon class="md-primary">send</md-icon>
-                            </md-button>
-                        </md-list-item>
-                    </md-list>
-                </md-whiteframe>
-            </md-layout>
-        </md-layout>
+  <div>
+    <v-card>
+      <v-list two-line subheader>
+        <v-subheader>Persons</v-subheader>
+        <v-list-tile v-for="(person, index) in Persons" :key="index">
+          <v-list-tile-content>
+            <v-list-tile-title>{{person.name}}</v-list-tile-title>
+          </v-list-tile-content>
+          <v-list-tile-action>
+            <v-icon color="black" @click="remove(person['.key'])">delete</v-icon>
+          </v-list-tile-action>
+        </v-list-tile>
+      </v-list>
+      <v-container>
+      <v-text-field label="Person Name" v-model="Person.name" @keyup.enter="add()"></v-text-field>
+      <v-btn @click="add()">Add Person</v-btn>
+      </v-container>
+    </v-card>
+    <div class="overlay" v-if="!ready">
+      <div class="flex-spinner">
+        <v-progress-circular :size="200" :width="7" indeterminate color="amber"></v-progress-circular>
+      </div> 
     </div>
+  </div>
 </template>
 
 <script>
 
-import Person from "./../models/Person"
+import Person from "@/models/Person"
 
 export default {
-    mounted() {
-        this.$auth.check({
-            then: (user) => {
-                // retrieve the logged-in user
-            },
-            catch: () => {
-                // user is not logged in
-            }
+    created () {
+        this.$binding('Persons', this.$store.state.firestore.collection('Persons')).then(data => {
+            this.ready = true
         })
     },
-    firestore() {
+    data () {
         return {
-            Persons: this.$store.state.firestore.collection("Persons")
-        }
-    },
-    data() {
-        return {
-            username: "",
-            Person: new Person(this.$store.state.firestore.collection('Persons')).init()
+            Person: new Person(this.$store.state.firestore.collection('Persons')).init(),
+            ready: false
         }
     },
     methods: {
-        add() {
+        add () {
             this.Person.add().then((success) => {
-                this.Person.name = ""
             }).catch(error => {
                 console.log(error.message)
             })
+            this.Person.name = ""
         },
-        remove(e) {
-            this.Person.delete(e['.key']).then(() => {
-                console.log("Done")
+        remove (key) {
+            this.Person.delete(key).then(() => {
             }).catch(error => {
                 console.log(error.message)
             })
