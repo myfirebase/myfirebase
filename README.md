@@ -12,8 +12,6 @@
 
 <p align="center">Myfirebase is a decoupled SPAs framework which is highly compatible with Google Firebase</p>
 
-> Currently, Myfirebase is in development stage, feel free to participate.
-
 ## Docs
 
 [Documentation](https://myfirebase.github.io).
