@@ -3,7 +3,7 @@ import * as googleFirebase from "firebase";
 import config from './config';
 
 class Firebase {
-    constructor() {
+    constructor () {
         googleFirebase.initializeApp(config)
         return googleFirebase
     }
