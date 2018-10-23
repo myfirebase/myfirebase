@@ -8,7 +8,7 @@ export default new Router({
     mode: 'history',
     base: __dirname,
     routes: routes,
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior (to, from, savedPosition) {
         return {
             x: 0,
             y: 0
