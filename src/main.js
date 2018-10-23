@@ -55,7 +55,7 @@ const app = new Vue({
                 .then(function () {
                     console.log("Permission accepted")
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log("Permission denied")
                 })
         }
