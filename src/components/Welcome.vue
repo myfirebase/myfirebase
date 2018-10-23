@@ -9,10 +9,10 @@
 </template>
 <script>
 export default {
-    mouted() {
+    mouted () {
         // component mounted
     },
-    data() {
+    data () {
         return {
         }
     }

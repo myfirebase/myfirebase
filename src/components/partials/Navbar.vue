@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  mounted() {
+  mounted () {
     this.$auth
       .check()
       .then(user => {
@@ -49,7 +49,7 @@ export default {
         this.username = "Auth";
       });
   },
-  data() {
+  data () {
     return {
       logo: "Myfirebase",
       toggle: false,
@@ -60,16 +60,16 @@ export default {
     };
   },
   computed: {
-    collaps() {
+    collaps () {
       return this.collapsClass;
     }
   },
   methods: {
-    logout() {
+    logout () {
       this.$auth.logout();
       this.signed = false
     },
-    signout() {
+    signout () {
       this.$auth.logout()
       this.signed = false;
     }
