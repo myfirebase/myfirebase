@@ -52,7 +52,7 @@ export default {
   firebase () {
     return {
       data: {
-        source: this.$store.state.database.child("item"),
+        source: this.$myDatabase.child("item"),
         readyCallback: () => {
           this.ready = true
         }
@@ -62,7 +62,7 @@ export default {
   data () {
     return {
       token: "",
-      Item: new Item(this.$store.state.database.child('item')).init(),
+      Item: new Item(this.$myDatabase.child('item')).init(),
       ready: false
     }
   },
