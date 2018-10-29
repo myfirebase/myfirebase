@@ -25,15 +25,15 @@
         "axios": "^0.16.1",
         "firebase": "^5.0.4",
         "install": "^0.11.0",
-        "myfirebase": "^0.4.1",
+        "myfirebase": "^0.4.3",
         "npm": "^6.1.0",
         "sw-precache-webpack-plugin": "^0.11.4",
-        "vue": "^2.2.2",
-        "vue-firestore": "^0.2.9",
-        "vue-router": "^2.3.0",
+        "vue": "^2.5.17",
+        "vue-firestore": "^0.3.1",
+        "vue-router": "^3.0.1",
         "vuefire": "^1.4.2",
         "vuetify": "^1.0.19",
-        "vuex": "^2.0.0"
+        "vuex": "^3.0.1"
     },
     "devDependencies": {
         "autoprefixer": "^6.7.2",
