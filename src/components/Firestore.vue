@@ -31,13 +31,13 @@ import Person from "@/models/Person"
 
 export default {
     created () {
-        this.$binding('Persons', this.$store.state.firestore.collection('Persons')).then(data => {
+        this.$binding('Persons', this.$myFirestore.collection('Persons')).then(data => {
             this.ready = true
         })
     },
     data () {
         return {
-            Person: new Person(this.$store.state.firestore.collection('Persons')).init(),
+            Person: new Person(this.$myFirestore.collection('Persons')).init(),
             ready: false
         }
     },
