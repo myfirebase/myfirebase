@@ -74,7 +74,7 @@
         "url-loader": "^0.5.8",
         "vue-loader": "^11.1.4",
         "vue-style-loader": "^2.0.0",
-        "vue-template-compiler": "^2.2.4",
+        "vue-template-compiler": "^2.5.13",
         "vuex-router-sync": "^2.1.1",
         "webpack": "^2.2.1",
         "webpack-bundle-analyzer": "^2.2.1",
