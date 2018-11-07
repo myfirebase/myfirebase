@@ -59,7 +59,6 @@
     </v-app>
 </template>
 <script>
-import navbar from "@/components/partials/Navbar";
 import RoutesUtils from '@/router/utils'
 
 export default {
@@ -89,9 +88,6 @@ export default {
       this.$router.push('/login')
     }
   },
-  components: {
-    navbar
-  }
 }
 </script>
 
