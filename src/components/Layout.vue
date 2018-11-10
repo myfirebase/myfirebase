@@ -1,3 +1,7 @@
+<style>
+ /* Styles */
+</style>
+
 <template>
     <v-app>
       <v-navigation-drawer app v-model="drawer" :permanent="drawer" hide-overlay width="200" v-if="$auth.user()">
@@ -5,7 +9,7 @@
           <v-list class="pa-0">
             <v-list-tile avatar>
               <v-list-tile-avatar>
-                <img :src="$auth.user().photoURL" >
+                <img :src="$auth.user().photoURL">
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ $auth.user().displayName || $auth.user().email }}</v-list-tile-title>
@@ -90,7 +94,3 @@ export default {
   },
 }
 </script>
-
-<style>
- /**/
-</style>
