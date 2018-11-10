@@ -1,3 +1,7 @@
+<style scoped>
+  /* Styles */
+</style>
+
 <template>
 <div>
   <v-card>
@@ -126,19 +130,3 @@ export default {
   }
 };
 </script>
-
-
-<style scoped>
-.image {
-  max-width: 200px;
-  min-width: 150px;
-}
-.profile-card {
-  margin-top: 20px;
-  width: 50%;
-}
-.hidden {
-  opacity: 0;
-  width: 0;
-}
-</style>
