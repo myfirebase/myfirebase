@@ -1,3 +1,7 @@
+<style scoped>
+  /* Styles */
+</style>
+
 <template>
   <div>
     <v-card>
@@ -13,11 +17,7 @@
         </v-list-tile>
       </v-list>
       <v-container>
-      <v-text-field
-      label="Item Name"
-      v-model="Item.name"
-      @keyup.enter="addItem()"
-      ></v-text-field>
+      <v-text-field label="Item Name" v-model="Item.name" @keyup.enter="addItem()"></v-text-field>
       <v-btn @click="addItem()">Add Item</v-btn>
       </v-container>
     </v-card>
@@ -78,15 +78,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.delete-data {
-  cursor: pointer;
-  color: red;
-}
-
-.data-container {
-  width: 700px;
-}
-
-</style>
