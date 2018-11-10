@@ -1,3 +1,47 @@
+<style scoped>
+.push-down {
+  margin-top: 15px;
+}
+
+.icon {
+  height: 18px;
+  width: 18px;
+  margin-right: 8px;
+}
+.mdl-layout {
+  align-items: center;
+  justify-content: center;
+}
+.mdl-layout__content {
+  padding: 24px;
+  flex: none;
+}
+
+.facebook {
+  background: #3b5998 !important;
+  color: white !important;
+  width: 100%;
+}
+
+.github {
+  background: black !important;
+  color: #fff !important;
+  width: 100%;
+}
+
+.twitter {
+  background: #1da1f2 !important;
+  color: #fff !important;
+  width: 100%;
+}
+
+.google {
+  background: #727272 !important;
+  color: #fff !important;
+  width: 100%;
+}
+</style>
+
 <template>
     <v-container>
       <v-layout row wrap>
@@ -11,18 +55,7 @@
             <v-card-text>
               <v-form ref="form" lazy-validation>
                 <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-                <v-text-field
-                  v-model="password"
-                  :append-icon="e3 ? 'visibility' : 'visibility_off'"
-                  :append-icon-cb="() => (e3 = !e3)"
-                  :type="e3 ? 'password' : 'text'"
-                  name="input-10-2"
-                  label="Enter your password"
-                  hint="At least 8 characters"
-                  min="8"
-                  value=""
-                  required
-                ></v-text-field>
+                <v-text-field v-model="password" :append-icon="e3 ? 'visibility' : 'visibility_off'" :append-icon-cb="() => (e3 = !e3)" :type="e3 ? 'password' : 'text'" name="input-10-2" label="Enter your password" hint="At least 8 characters" min="8" value="" required></v-text-field>
                 <v-btn @click="login">
                   Login
                 </v-btn>
@@ -51,15 +84,7 @@
           </v-card>
         </v-flex>
       </v-layout>
-      <v-snackbar
-        :timeout="6000"
-        :top="true"
-        :bottom="false"
-        :right="false"
-        :left="false"
-        :multi-line="false"
-        :vertical="true"
-        v-model="snackbar"
+      <v-snackbar :timeout="6000" :top="true" :bottom="false" :right="false" :left="false" :multi-line="false" :vertical="true" v-model="snackbar"
       >
         {{ error }}
         <v-btn flat color="pink" @click.native="snackbar = false">Close</v-btn>
@@ -184,48 +209,3 @@ export default {
   }
 };
 </script>
-
-
-<style scoped>
-.push-down {
-  margin-top: 15px;
-}
-
-.icon {
-  height: 18px;
-  width: 18px;
-  margin-right: 8px;
-}
-.mdl-layout {
-  align-items: center;
-  justify-content: center;
-}
-.mdl-layout__content {
-  padding: 24px;
-  flex: none;
-}
-
-.facebook {
-  background: #3b5998 !important;
-  color: white !important;
-  width: 100%;
-}
-
-.github {
-  background: black !important;
-  color: #fff !important;
-  width: 100%;
-}
-
-.twitter {
-  background: #1da1f2 !important;
-  color: #fff !important;
-  width: 100%;
-}
-
-.google {
-  background: #727272 !important;
-  color: #fff !important;
-  width: 100%;
-}
-</style>
