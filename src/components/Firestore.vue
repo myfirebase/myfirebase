@@ -1,3 +1,7 @@
+<style scoped>
+  /* Styles */
+</style>
+
 <template>
   <div>
     <v-card>
@@ -58,13 +62,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.container {
-    margin: 0 auto;
-}
-
-.data-container {
-    width: 700px;
-}
-</style>
