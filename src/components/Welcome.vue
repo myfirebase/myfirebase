@@ -1,3 +1,12 @@
+<style>
+.flex {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
 <template>
     <div class="flex">
         <img src="./../assets/img/MyFireBase.svg" alt="MyfirebaseLogo">
@@ -18,12 +27,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.flex {
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-</style>
