@@ -1,5 +1,5 @@
 {
-    "version": "0.4.3",
+    "version": "0.4.4",
     "name": "myfirebase",
     "description": "Myfirebase is a decoupled SPAs framework which is highly compatible with Google Firebase",
     "author": "Amrani Houssain <amranidev@gmail.com>",
