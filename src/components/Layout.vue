@@ -79,7 +79,7 @@ export default {
         { title: 'Cloud Firestore', link: 'account_box' },
       ],
       drawer: true,
-      RoutesUtils: RoutesUtils.navigarion
+      RoutesUtils: RoutesUtils.navigation
     }
   },
   methods: {
