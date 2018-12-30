@@ -18,8 +18,7 @@
     "scripts": {
         "dev": "node build/dev-server.js",
         "start": "node build/dev-server.js",
-        "build": "node build/build.js",
-        "test": "cross-env BABEL_ENV=test karma start tests/unit/karma.conf.js --single-run"
+        "build": "node build/build.js"
     },
     "dependencies": {
         "axios": "^0.16.1",
