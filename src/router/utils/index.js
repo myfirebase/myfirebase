@@ -2,7 +2,7 @@
  * Routes UTILS.
  */
 let UTILS = {
-  navigarion: {
+  navigation: {
     github: () => {
       window.location.replace("https://github.com/myfirebase/myfirebase")
     },
