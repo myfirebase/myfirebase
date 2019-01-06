@@ -28,7 +28,7 @@
         "npm": "^6.1.0",
         "sw-precache-webpack-plugin": "^0.11.4",
         "vue": "^2.5.17",
-        "vue-firestore": "^0.3.1",
+        "vue-firestore": "^0.3.16",
         "vue-router": "^3.0.1",
         "vuefire": "^1.4.2",
         "vuetify": "^1.0.19",
