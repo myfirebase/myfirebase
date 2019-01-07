@@ -18,8 +18,8 @@
 </template>
 <script>
 export default {
-    mouted () {
-        // component mounted
+    mounted () {
+        //
     },
     data () {
         return {
