@@ -3,10 +3,10 @@
  * you can simply do that by adding them to the middlewares array.
  */
 
-// import AuthMiddleware.
+// Import AuthMiddleware.
 import AuthMiddleware from './auth'
 
-// register AuthMiddleware.
+// Register AuthMiddleware.
 const middlewares = [AuthMiddleware]
 
 export default middlewares
