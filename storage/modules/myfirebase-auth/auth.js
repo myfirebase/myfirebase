@@ -1,4 +1,4 @@
-import { firebase } from './../../../src/firebase/firebase'
+import { firebase } from '@/firebase/firebase'
 
 // setup auth
 const auth = firebase.auth();
