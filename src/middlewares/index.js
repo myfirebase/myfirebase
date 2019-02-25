@@ -4,7 +4,7 @@
  */
 
 // Import AuthMiddleware.
-import AuthMiddleware from './auth'
+import AuthMiddleware from '@/middlewares/auth'
 
 // Register AuthMiddleware.
 const middlewares = [AuthMiddleware]
