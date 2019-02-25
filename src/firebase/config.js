@@ -1,7 +1,7 @@
 // Firebase app configuration.
 const config = {
     // Past your configuration here from Google Firebase
-    apiKey: "your-apik-ey",
+    apiKey: "your-api-key",
     authDomain: "your-auth-domain",
     databaseURL: "your-database-url",
     projectId: "your-project-id",
